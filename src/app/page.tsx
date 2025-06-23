@@ -223,7 +223,7 @@ export default function Home() {
               </ul>
             </div>
             <div className="bg-white border border-gray-200 p-8 rounded-2xl">
-              <h3 className="font-light text-black mb-6 text-xl">✗ What We Don't Do</h3>
+              <h3 className="font-light text-black mb-6 text-xl">✗ What We Don&apos;t Do</h3>
               <ul className="space-y-4 text-gray-600 font-light">
                 <li>• Send audio to external servers</li>
                 <li>• Collect personal information</li>
