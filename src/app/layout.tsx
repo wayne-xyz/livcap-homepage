@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
-import appIconDark from "./appIcon_dark.png";
 import appIconLight from "./appIcon_light.png";
 
 const inter = Inter({
@@ -17,12 +16,6 @@ export const metadata: Metadata = {
     {
       rel: "icon",
       url: appIconLight.src,
-      media: "(prefers-color-scheme: light)",
-    },
-    {
-      rel: "icon",
-      url: appIconDark.src,
-      media: "(prefers-color-scheme: dark)",
     },
   ],
 };

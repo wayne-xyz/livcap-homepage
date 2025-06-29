@@ -1,51 +1,53 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Download, Shield, Zap, MousePointer, Mic, ArrowRight, Github, Code, Heart } from 'lucide-react';
+import { Shield, Zap, MousePointer, Mic, ArrowRight, Github, Code, Heart, Clock } from 'lucide-react';
 import Image from 'next/image';
-import appIconDark from './appIcon_dark.png';
 import appIconLight from './appIcon_light.png';
 import { ThemeSwitcher } from '@/components/theme-switcher';
 import { useTheme } from 'next-themes';
 
 export default function Home() {
   const [year, setYear] = useState<number | null>(null);
-  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     setYear(new Date().getFullYear());
     setMounted(true);
   }, []);
 
+  // Don't render theme-dependent content until mounted
+  if (!mounted) {
+    return <div className="min-h-screen bg-background text-foreground">Loading...</div>;
+  }
+
+  console.log('Current theme:', resolvedTheme); // Debug info
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <div className="flex items-center justify-between h-20">
-            <div className="flex items-center space-x-4">
-              {mounted ? (
-                <Image 
-                  src={resolvedTheme === 'dark' ? appIconDark : appIconLight} 
-                  alt="Livcap Logo" 
-                  width={40}
-                  height={40}
-                />
-              ) : (
-                <div className="w-10 h-10" />
-              )}
-              <span className="text-2xl font-light tracking-tight">Livcap</span>
+      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-background/90 backdrop-blur-md border border-border rounded-2xl">
+        <div className="px-6 sm:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center space-x-4 mr-8">
+              <Image 
+                src={appIconLight} 
+                alt="Livcap Logo" 
+                width={32}
+                height={32}
+              />
+              <span className="text-xl font-light tracking-tight">Livcap</span>
             </div>
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-6">
               <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors font-light">Features</a>
               <a href="#opensource" className="text-muted-foreground hover:text-foreground transition-colors font-light">Open Source</a>
               <a href="#privacy" className="text-muted-foreground hover:text-foreground transition-colors font-light">Privacy</a>
-              <a href="https://github.com/livcap/livcap" className="flex items-center text-muted-foreground hover:text-foreground transition-colors font-light">
+              <a href="https://github.com/wayne-xyz/Livcap" className="flex items-center text-muted-foreground hover:text-foreground transition-colors font-light">
                 <Github className="w-4 h-4 mr-2" />
                 GitHub
               </a>
-              <a href="#" className="bg-foreground text-background px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors font-light">
-                Mac App Store
+              <a href="#" className="bg-foreground text-background px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors font-light text-sm">
+                Coming Soon
               </a>
               <ThemeSwitcher />
             </div>
@@ -67,19 +69,33 @@ export default function Home() {
                 Simplified
               </span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-16 leading-relaxed font-light max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed font-light max-w-3xl mx-auto">
               The most private, open source live captioning app for macOS.
               One-click activation, lightning-fast local processing, zero data sharing.
             </p>
+            
+            {/* Coming Soon Notice - Using conditional styling */}
+            <div className={`inline-flex items-center px-6 py-3 rounded-xl text-base font-light mb-16 ${
+              resolvedTheme === 'dark' 
+                ? 'bg-blue-900/20 border-blue-800 text-blue-200' 
+                : 'bg-blue-50 border-blue-200 text-blue-950'
+            } border`}>
+              <Clock className="w-5 h-5 mr-3" />
+              <div className="text-left">
+                <div className="font-medium">macOS App Coming Soon</div>
+                <div className="text-sm opacity-75">Currently in development • Follow our GitHub for updates</div>
+              </div>
+            </div>
+            
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <a href="#" className="group bg-foreground text-background px-10 py-4 rounded-xl font-light text-lg hover:bg-primary/90 transition-all duration-300 flex items-center">
-                <Download className="w-5 h-5 mr-3" />
-                Download on Mac App Store
+              <a href="https://github.com/wayne-xyz/Livcap" className="group bg-foreground text-background px-10 py-4 rounded-xl font-light text-lg hover:bg-primary/90 transition-all duration-300 flex items-center">
+                <Github className="w-5 h-5 mr-3" />
+                View Source Code
                 <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href="https://github.com/" className="group border border-border text-foreground px-10 py-4 rounded-xl font-light text-lg hover:border-foreground transition-all duration-300 flex items-center">
+              <a href="https://github.com/wayne-xyz/Livcap" className="group border border-border text-foreground px-10 py-4 rounded-xl font-light text-lg hover:border-foreground transition-all duration-300 flex items-center">
                 <Github className="w-5 h-5 mr-3" />
-                View on GitHub
+                Star on GitHub
                 <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
@@ -106,7 +122,7 @@ export default function Home() {
               <p className="text-muted-foreground leading-relaxed font-light mb-6">
                 Full source code available on GitHub. MIT licensed for maximum freedom and transparency.
               </p>
-              <a href="https://github.com/" className="text-foreground hover:text-muted-foreground transition-colors font-light flex items-center justify-center">
+              <a href="https://github.com/wayne-xyz/Livcap" className="text-foreground hover:text-muted-foreground transition-colors font-light flex items-center justify-center">
                 View Repository <ArrowRight className="w-4 h-4 ml-2" />
               </a>
             </div>
@@ -119,7 +135,7 @@ export default function Home() {
               <p className="text-muted-foreground leading-relaxed font-light mb-6">
                 Built by developers, for developers. Contributions welcome from the community.
               </p>
-              <a href="https://github.com/" className="text-foreground hover:text-muted-foreground transition-colors font-light flex items-center justify-center">
+              <a href="https://github.com/wayne-xyz/Livcap" className="text-foreground hover:text-muted-foreground transition-colors font-light flex items-center justify-center">
                 Contribute <ArrowRight className="w-4 h-4 ml-2" />
               </a>
             </div>
@@ -132,7 +148,7 @@ export default function Home() {
               <p className="text-muted-foreground leading-relaxed font-light mb-6">
                 No hidden code, no black boxes. Every line of code is open for inspection and audit.
               </p>
-              <a href="https://github.com/" className="text-foreground hover:text-muted-foreground transition-colors font-light flex items-center justify-center">
+              <a href="https://github.com/wayne-xyz/Livcap" className="text-foreground hover:text-muted-foreground transition-colors font-light flex items-center justify-center">
                 View Releases <ArrowRight className="w-4 h-4 ml-2" />
               </a>
             </div>
@@ -256,16 +272,16 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center px-6 sm:px-8">
           <h2 className="text-5xl font-extralight text-background mb-8 tracking-tight">Ready to Get Started?</h2>
           <p className="text-xl text-muted-foreground mb-12 font-light">
-            Download Livcap from the Mac App Store or build from source
+            Explore the source code on GitHub and follow development progress
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
-            <a href="#" className="bg-background text-foreground px-10 py-4 rounded-xl font-light text-lg hover:bg-muted transition-colors flex items-center shadow-xl">
-              <Download className="w-5 h-5 mr-3" />
-              Download on Mac App Store
-            </a>
-            <a href="https://github.com/" className="border border-muted-foreground text-background px-10 py-4 rounded-xl font-light text-lg hover:border-background transition-colors flex items-center">
+            <a href="https://github.com/wayne-xyz/Livcap" className="bg-background text-foreground px-10 py-4 rounded-xl font-light text-lg hover:bg-muted transition-colors flex items-center shadow-xl">
               <Github className="w-5 h-5 mr-3" />
               View on GitHub
+            </a>
+            <a href="https://github.com/wayne-xyz/Livcap" className="border border-muted-foreground text-background px-10 py-4 rounded-xl font-light text-lg hover:border-background transition-colors flex items-center">
+              <Heart className="w-5 h-5 mr-3" />
+              Star the Project
             </a>
           </div>
           <p className="text-sm text-muted-foreground">&copy; {year} Livcap. All rights reserved.</p>
