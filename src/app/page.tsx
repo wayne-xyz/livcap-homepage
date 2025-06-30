@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Shield, Zap, MousePointer, Mic, ArrowRight, Github, Code, Heart, Clock } from 'lucide-react';
+import { Shield, Zap, MousePointer, Mic, ArrowRight, Github, Code, Heart, Clock, TrendingUp, AudioLines, Type, Globe, Rocket, Users } from 'lucide-react';
 import Image from 'next/image';
 import appIconLight from './appIcon_light.png';
 import { ThemeSwitcher } from '@/components/theme-switcher';
@@ -160,40 +160,178 @@ export default function Home() {
       <section id="features" className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-5xl font-extralight text-foreground mb-6 tracking-tight">Built for Performance</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
-              Every feature designed with your privacy and productivity in mind
+            <h2 className="text-5xl font-extralight text-foreground mb-6 tracking-tight">Next-Level Captioning</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
+              Revolutionary features that make Livcap the most advanced live captioning solution for macOS
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-12">
+            {/* Faster Than Ever */}
             <div className="group text-center">
               <div className="w-16 h-16 bg-foreground rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:scale-105 transition-transform duration-300">
-                <Shield className="w-8 h-8 text-background" />
+                <TrendingUp className="w-8 h-8 text-background" />
               </div>
-              <h3 className="text-2xl font-light text-foreground mb-4">100% Local</h3>
-              <p className="text-muted-foreground leading-relaxed font-light">
-                Your audio never leaves your device. Advanced AI models run locally, ensuring complete privacy and zero latency.
+              <h3 className="text-2xl font-light text-foreground mb-4">Faster Than Ever</h3>
+              <p className="text-muted-foreground leading-relaxed font-light mb-6">
+                Optimized performance delivers faster transcription with improved efficiency compared to macOS built-in live captions.
               </p>
+              <div className="bg-muted rounded-xl p-4 mb-4">
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div className="text-center">
+                    <div className="text-2xl font-light text-foreground mb-1">10%</div>
+                    <div className="text-muted-foreground font-light">Latency Reduction</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-light text-foreground mb-1">1.7x</div>
+                    <div className="text-muted-foreground font-light">Word-level Lead Rate</div>
+                  </div>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground font-light">vs. macOS Built-in Live Caption</p>
             </div>
 
+            {/* Mixed Audio Sources */}
             <div className="group text-center">
               <div className="w-16 h-16 bg-foreground rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:scale-105 transition-transform duration-300">
-                <Zap className="w-8 h-8 text-background" />
+                <AudioLines className="w-8 h-8 text-background" />
               </div>
-              <h3 className="text-2xl font-light text-foreground mb-4">Lightning Fast</h3>
+              <h3 className="text-2xl font-light text-foreground mb-4">Dual Audio Sources</h3>
               <p className="text-muted-foreground leading-relaxed font-light">
-                Optimized for Apple Silicon and Intel Macs. Real-time captions with minimal CPU usage and instant response.
+                Simultaneously capture and caption both microphone input and system audio. Perfect for meetings, calls, and presentations where you need to capture everything being said.
               </p>
+              <div className="bg-muted rounded-xl p-4 mt-6">
+                <div className="flex items-center justify-center space-x-4 text-sm">
+                  <div className="flex items-center">
+                    <Mic className="w-4 h-4 mr-2 text-foreground" />
+                    <span className="text-muted-foreground font-light">Microphone</span>
+                  </div>
+                  <div className="text-muted-foreground">+</div>
+                  <div className="flex items-center">
+                    <AudioLines className="w-4 h-4 mr-2 text-foreground" />
+                    <span className="text-muted-foreground font-light">System Audio</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
+            {/* Sentence Sense Line Breaking */}
             <div className="group text-center">
               <div className="w-16 h-16 bg-foreground rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:scale-105 transition-transform duration-300">
-                <MousePointer className="w-8 h-8 text-background" />
+                <Type className="w-8 h-8 text-background" />
               </div>
-              <h3 className="text-2xl font-light text-foreground mb-4">One-Click</h3>
+              <h3 className="text-2xl font-light text-foreground mb-4">Smart Line Breaks</h3>
               <p className="text-muted-foreground leading-relaxed font-light">
-                Start captioning with a single click from the menu bar. Seamless integration with macOS.
+                Intelligent sentence-sense line breaking responds to natural speech patterns and interruptions. The UI adapts in real-time to your speaking rhythm for better readability.
+              </p>
+              <div className="bg-muted rounded-xl p-4 mt-6 text-left">
+                <div className="text-sm text-muted-foreground font-light space-y-2">
+                  <div>✓ Natural pause detection</div>
+                  <div>✓ Interruption handling</div>
+                  <div>✓ Dynamic text formatting</div>
+                  <div>✓ Real-time UI response</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What's Next Section */}
+      <section className="py-24 bg-muted">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-4 py-2 bg-background rounded-full text-foreground text-sm font-light mb-8">
+              <Rocket className="w-4 h-4 mr-2" />
+              In Development • Coming Soon
+            </div>
+            <h2 className="text-5xl font-extralight text-foreground mb-6 tracking-tight">What's Next</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
+              Exciting new features planned for future versions. Help us build the future of live captioning.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
+            {/* Multi-Language Support */}
+            <div className="group text-center">
+              <div className="w-16 h-16 bg-background rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:scale-105 transition-transform duration-300 shadow-sm">
+                <Globe className="w-8 h-8 text-foreground" />
+              </div>
+              <h3 className="text-2xl font-light text-foreground mb-4">Multi-Language Support</h3>
+              <p className="text-muted-foreground leading-relaxed font-light mb-6">
+                Expanding beyond English to support multiple languages for global accessibility. Real-time transcription in your preferred language.
+              </p>
+              <div className="bg-background rounded-xl p-4 border border-border">
+                <div className="text-sm text-muted-foreground font-light space-y-2">
+                  <div>🌍 Spanish, French, German</div>
+                  <div>🗾 Japanese, Korean, Chinese</div>
+                  <div>🌏 Portuguese, Italian, Dutch</div>
+                  <div>📝 And many more...</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Enhanced Performance */}
+            <div className="group text-center">
+              <div className="w-16 h-16 bg-background rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:scale-105 transition-transform duration-300 shadow-sm">
+                <Zap className="w-8 h-8 text-foreground" />
+              </div>
+              <h3 className="text-2xl font-light text-foreground mb-4">Even Faster</h3>
+              <p className="text-muted-foreground leading-relaxed font-light mb-6">
+                Continuous performance improvements and optimization. We're pushing the boundaries of real-time transcription speed.
+              </p>
+              <div className="bg-background rounded-xl p-4 border border-border">
+                <div className="text-sm text-muted-foreground font-light space-y-2">
+                  <div>⚡ Advanced model optimization</div>
+                  <div>🔧 Hardware acceleration</div>
+                  <div>📊 Reduced memory footprint</div>
+                  <div>🎯 Sub-100ms latency goal</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Contributors Call-to-Action */}
+          <div className="bg-background border border-border rounded-3xl p-12 text-center">
+            <div className="max-w-4xl mx-auto">
+              <div className="inline-block p-6 bg-muted rounded-2xl mb-8">
+                <Users className="w-16 h-16 text-foreground" />
+              </div>
+              <h3 className="text-4xl font-extralight text-foreground mb-6 tracking-tight">Join Our Mission</h3>
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed font-light">
+                We're actively seeking contributors, especially native speakers of different languages, 
+                to help us build truly global live captioning. Your expertise can make Livcap accessible to millions worldwide.
+              </p>
+              
+              <div className="grid md:grid-cols-3 gap-8 mb-12">
+                <div>
+                  <h4 className="text-lg font-light text-foreground mb-3">Language Experts</h4>
+                  <p className="text-muted-foreground font-light text-sm">Help us test and optimize transcription accuracy for your native language</p>
+                </div>
+                <div>
+                  <h4 className="text-lg font-light text-foreground mb-3">Developers</h4>
+                  <p className="text-muted-foreground font-light text-sm">Contribute code, fix bugs, and help us build new features</p>
+                </div>
+                <div>
+                  <h4 className="text-lg font-light text-foreground mb-3">Testers</h4>
+                  <p className="text-muted-foreground font-light text-sm">Help us identify issues and improve the user experience</p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <a href="https://github.com/wayne-xyz/Livcap" className="bg-foreground text-background px-8 py-4 rounded-xl font-light text-lg hover:bg-primary/90 transition-colors flex items-center shadow-xl">
+                  <Github className="w-5 h-5 mr-3" />
+                  Start Contributing
+                  <ArrowRight className="w-5 h-5 ml-3" />
+                </a>
+                <a href="https://github.com/wayne-xyz/Livcap/issues" className="border border-border text-foreground px-8 py-4 rounded-xl font-light text-lg hover:border-foreground transition-colors flex items-center">
+                  <Heart className="w-5 h-5 mr-3" />
+                  Report Issues
+                </a>
+              </div>
+              
+              <p className="text-sm text-muted-foreground mt-8 font-light">
+                🙏 We're grateful for every contribution, no matter how small. Together, we can make live captioning accessible to everyone.
               </p>
             </div>
           </div>
