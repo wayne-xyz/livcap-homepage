@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Shield, Zap, MousePointer, Mic, ArrowRight, Github, Code, Heart, Clock, TrendingUp, AudioLines, Type, Globe, Rocket, Users } from 'lucide-react';
+import { Shield, Zap, Mic, ArrowRight, Github, Code, Heart, Clock, TrendingUp, AudioLines, Type, Globe, Rocket } from 'lucide-react';
 import Image from 'next/image';
 import appIconLight from './appIcon_light.png';
 import { ThemeSwitcher } from '@/components/theme-switcher';
@@ -245,7 +245,7 @@ export default function Home() {
               <Rocket className="w-4 h-4 mr-2" />
               In Development • Coming Soon
             </div>
-            <h2 className="text-5xl font-extralight text-foreground mb-6 tracking-tight">What's Next</h2>
+            <h2 className="text-5xl font-extralight text-foreground mb-6 tracking-tight">What&apos;s Next</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
               Exciting new features planned for future versions. Help us build the future of live captioning.
             </p>
@@ -278,7 +278,7 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-light text-foreground mb-4">Even Faster</h3>
               <p className="text-muted-foreground leading-relaxed font-light mb-6">
-                Continuous performance improvements and optimization. We're pushing the boundaries of real-time transcription speed.
+                Continuous performance improvements and optimization. We&apos;re pushing the boundaries of real-time transcription speed.
               </p>
               <div className="bg-background rounded-xl p-4 border border-border">
                 <div className="text-sm text-muted-foreground font-light space-y-2">
@@ -292,47 +292,22 @@ export default function Home() {
           </div>
 
           {/* Contributors Call-to-Action */}
-          <div className="bg-background border border-border rounded-3xl p-12 text-center">
-            <div className="max-w-4xl mx-auto">
-              <div className="inline-block p-6 bg-muted rounded-2xl mb-8">
-                <Users className="w-16 h-16 text-foreground" />
-              </div>
-              <h3 className="text-4xl font-extralight text-foreground mb-6 tracking-tight">Join Our Mission</h3>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed font-light">
-                We're actively seeking contributors, especially native speakers of different languages, 
-                to help us build truly global live captioning. Your expertise can make Livcap accessible to millions worldwide.
+          <div className="bg-background border border-border rounded-2xl p-8 text-center">
+            <div className="max-w-2xl mx-auto">
+              <h3 className="text-2xl font-light text-foreground mb-4">Want to Contribute?</h3>
+              <p className="text-muted-foreground mb-6 font-light">
+                Help us improve Livcap. All contributions welcome.
               </p>
               
-              <div className="grid md:grid-cols-3 gap-8 mb-12">
-                <div>
-                  <h4 className="text-lg font-light text-foreground mb-3">Language Experts</h4>
-                  <p className="text-muted-foreground font-light text-sm">Help us test and optimize transcription accuracy for your native language</p>
-                </div>
-                <div>
-                  <h4 className="text-lg font-light text-foreground mb-3">Developers</h4>
-                  <p className="text-muted-foreground font-light text-sm">Contribute code, fix bugs, and help us build new features</p>
-                </div>
-                <div>
-                  <h4 className="text-lg font-light text-foreground mb-3">Testers</h4>
-                  <p className="text-muted-foreground font-light text-sm">Help us identify issues and improve the user experience</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <a href="https://github.com/wayne-xyz/Livcap" className="bg-foreground text-background px-8 py-4 rounded-xl font-light text-lg hover:bg-primary/90 transition-colors flex items-center shadow-xl">
-                  <Github className="w-5 h-5 mr-3" />
-                  Start Contributing
-                  <ArrowRight className="w-5 h-5 ml-3" />
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://github.com/wayne-xyz/Livcap" className="bg-foreground text-background px-6 py-3 rounded-lg font-light hover:bg-primary/90 transition-colors flex items-center">
+                  <Github className="w-4 h-4 mr-2" />
+                  View on GitHub
                 </a>
-                <a href="https://github.com/wayne-xyz/Livcap/issues" className="border border-border text-foreground px-8 py-4 rounded-xl font-light text-lg hover:border-foreground transition-colors flex items-center">
-                  <Heart className="w-5 h-5 mr-3" />
+                <a href="https://github.com/wayne-xyz/Livcap/issues" className="border border-border text-foreground px-6 py-3 rounded-lg font-light hover:border-foreground transition-colors flex items-center">
                   Report Issues
                 </a>
               </div>
-              
-              <p className="text-sm text-muted-foreground mt-8 font-light">
-                🙏 We're grateful for every contribution, no matter how small. Together, we can make live captioning accessible to everyone.
-              </p>
             </div>
           </div>
         </div>
