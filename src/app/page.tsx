@@ -5,6 +5,7 @@ import Image from 'next/image';
 import appIconLight from './appIcon_light.png';
 import { ThemeSwitcher } from '@/components/theme-switcher';
 import { useTheme } from 'next-themes';
+import { IconAnimation } from '@/components/icon-animation';
 
 export default function Home() {
   const [year, setYear] = useState<number | null>(null);
@@ -63,16 +64,31 @@ export default function Home() {
               <Code className="w-4 h-4 mr-2" />
               Open Source • Privacy First • Local Processing
             </div>
+
+            
+            {/* Rive Animation */}
+            <div className="flex justify-center mb-12">
+              <IconAnimation 
+                width={800} 
+                height={800} 
+                animationName="Timeline 1"
+                className="hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+
+
             <h1 className="text-6xl sm:text-8xl font-extralight text-foreground leading-none mb-8 tracking-tight">
               Live Captions
               <span className="block font-light">
                 Simplified
               </span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed font-light max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground mb-12 leading-relaxed font-light max-w-3xl mx-auto">
               The most private, open source live captioning app for macOS.
               One-click activation, lightning-fast local processing, zero data sharing.
             </p>
+            
+
             
             {/* Coming Soon Notice - Using conditional styling */}
             <div className={`inline-flex items-center px-6 py-3 rounded-xl text-base font-light mb-16 ${
