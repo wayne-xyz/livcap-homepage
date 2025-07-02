@@ -26,7 +26,7 @@ export function Navigation({ className = "" }: NavigationProps) {
           <div className="hidden sm:flex items-center space-x-4 md:space-x-6">
             <a 
               href="#" 
-              className="bg-foreground text-background px-3 py-2 sm:px-4 sm:py-2 rounded-lg hover:bg-primary/90 transition-colors font-light text-xs sm:text-sm"
+              className="border border-border text-foreground px-3 py-2 sm:px-4 sm:py-2 rounded-lg hover:border-foreground/50 hover:bg-muted/30 transition-colors font-light text-xs sm:text-sm"
             >
               Coming Soon
             </a>
@@ -65,7 +65,7 @@ export function Navigation({ className = "" }: NavigationProps) {
                     {/* Coming Soon */}
                     <a 
                       href="#"
-                      className="block w-full p-3 bg-foreground text-background rounded-lg hover:bg-primary/90 transition-colors text-center font-light text-sm"
+                      className="block w-full p-3 border border-border text-foreground rounded-lg hover:border-foreground/50 hover:bg-muted/30 transition-colors text-center font-light text-sm"
                       onClick={closeMobileMenu}
                     >
                       Coming Soon

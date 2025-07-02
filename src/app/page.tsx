@@ -130,63 +130,64 @@ export default function Home() {
         {/* Section 2: Dual Audio Sources */}
         <section className="py-24 bg-background">
           <div className="max-w-7xl mx-auto px-6 sm:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left side - Interactive Audio Controls */}
-              <div className="flex justify-center">
-                <div className="relative">
-                  <div className="w-80 h-64 bg-gradient-to-br from-muted/50 to-muted/30 rounded-3xl flex items-center justify-center shadow-lg border border-border/20">
-                    <div className="flex items-center space-x-8">
-                      <AudioToggleButton 
-                        type="microphone" 
-                        initialState={true}
-                        onToggle={(isOn) => console.log('Microphone:', isOn ? 'ON' : 'OFF')}
-                      />
-
-                      <AudioToggleButton  
-                        type="system" 
-                        initialState={true}
-                        onToggle={(isOn) => console.log('System Audio:', isOn ? 'ON' : 'OFF')}
-                      />
-
-                      <AudioToggleButton 
-                        type="pin" 
-                        initialState={false}
-                        onToggle={(isOn) => console.log('Pin:', isOn ? 'ON' : 'OFF')}
-                      />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+              {/* Left side - Content Panel */}
+              <div className="bg-muted/20  backdrop-blur-sm rounded-3xl p-6 sm:p-8 lg:p-10 border border-border/20 shadow-lg ">
+                <div className="text-left">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-foreground mb-6 lg:mb-8 tracking-tight">Dual Audio Sources</h2>
+                  <p className="text-lg sm:text-xl text-muted-foreground mb-8 lg:mb-12 leading-relaxed font-light">
+                    Simultaneously capture and caption both microphone input and system audio. Perfect for meetings, calls, and presentations where you need to capture everything being said.
+                  </p>
+                  
+                  <div className="bg-background/60 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-border/30">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                      <div className="flex items-center space-x-3">
+                        <Image 
+                          src="/mic-audio.svg" 
+                          alt="Microphone Audio" 
+                          width={24} 
+                          height={24} 
+                          className={`w-5 h-5 sm:w-6 sm:h-6 ${resolvedTheme === 'dark' ? 'filter invert' : ''}`}
+                        />
+                        <span className="text-foreground font-light text-sm sm:text-base">Microphone</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <Image 
+                          src="/system-audio.svg" 
+                          alt="System Audio" 
+                          width={24} 
+                          height={24} 
+                          className={`w-8 h-8 sm:w-8 sm:h-8 ${resolvedTheme === 'dark' ? 'filter invert' : ''}`}
+                        />
+                        <span className="text-foreground font-light text-sm sm:text-base">System Audio</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
               
-              {/* Right side - Content */}
-              <div className="text-left">
-                <h2 className="text-5xl font-extralight text-foreground mb-8 tracking-tight">Dual Audio Sources</h2>
-                <p className="text-xl text-muted-foreground mb-12 leading-relaxed font-light">
-                  Simultaneously capture and caption both microphone input and system audio. Perfect for meetings, calls, and presentations where you need to capture everything being said.
-                </p>
-                
-                <div className="bg-muted rounded-2xl p-6 border border-border">
-                  <div className="grid grid-cols-2 gap-6">
-                    <div className="flex items-center space-x-3">
-                      <Image 
-                        src="/mic-audio.svg" 
-                        alt="Microphone Audio" 
-                        width={24} 
-                        height={24} 
-                        className="w-6 h-6"
-                      />
-                      <span className="text-foreground font-light">Microphone</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Image 
-                        src="/system-audio.svg" 
-                        alt="System Audio" 
-                        width={24} 
-                        height={24} 
-                        className="w-6 h-6"
-                      />
-                      <span className="text-foreground font-light">System Audio</span>
-                    </div>
+              {/* Right side - Button Group Panel */}
+              <div className="flex justify-center">
+                <div className="backdrop-blur-sm rounded-2xl p-6 sm:p-8">
+
+                  <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+                    <AudioToggleButton 
+                      type="microphone" 
+                      initialState={true}
+                      onToggle={(isOn) => console.log('Microphone:', isOn ? 'ON' : 'OFF')}
+                    />
+
+                    <AudioToggleButton  
+                      type="system" 
+                      initialState={true}
+                      onToggle={(isOn) => console.log('System Audio:', isOn ? 'ON' : 'OFF')}
+                    />
+
+                    <AudioToggleButton 
+                      type="pin" 
+                      initialState={false}
+                      onToggle={(isOn) => console.log('Pin:', isOn ? 'ON' : 'OFF')}
+                    />
                   </div>
                 </div>
               </div>
@@ -197,38 +198,40 @@ export default function Home() {
         {/* Section 3: Smart Line Breaking */}
         <section className="py-24 bg-muted">
           <div className="max-w-7xl mx-auto px-6 sm:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left side - Icon/Animation */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+              {/* Left side - Simple Icon */}
               <div className="flex justify-center">
-                <div className="w-64 h-64 bg-foreground rounded-3xl flex items-center justify-center group hover:scale-105 transition-transform duration-300">
-                  <SplitSquareHorizontal className="w-32 h-32 text-background" />
+                <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 border-2 border-border/30 rounded-3xl flex items-center justify-center group hover:border-border/50 transition-all duration-300">
+                  <SplitSquareHorizontal className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 text-foreground/70 group-hover:text-foreground transition-colors duration-300" />
                 </div>
               </div>
               
-              {/* Right side - Content */}
-              <div className="text-left">
-                <h2 className="text-5xl font-extralight text-foreground mb-8 tracking-tight">Smart Line Breaking</h2>
-                <p className="text-xl text-muted-foreground mb-12 leading-relaxed font-light">
-                  Intelligent sentence-sense line breaking responds to natural speech patterns and interruptions. Easy to track content in the caption view with adaptive formatting.
-                </p>
-                
-                <div className="bg-background rounded-2xl p-6">
-                  <div className="space-y-3 text-muted-foreground font-light">
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-foreground rounded-full mr-4"></div>
-                      Natural pause detection
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-foreground rounded-full mr-4"></div>
-                      Interruption handling
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-foreground rounded-full mr-4"></div>
-                      Dynamic text formatting
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-foreground rounded-full mr-4"></div>
-                      Real-time UI response
+              {/* Right side - Content Panel */}
+              <div className="bg-background/20 backdrop-blur-sm rounded-3xl p-6 sm:p-8 lg:p-10 border border-border/20 shadow-lg">
+                <div className="text-left">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-foreground mb-6 lg:mb-8 tracking-tight">Smart Line Breaking</h2>
+                  <p className="text-lg sm:text-xl text-muted-foreground mb-8 lg:mb-12 leading-relaxed font-light">
+                    Intelligent sentence-sense line breaking responds to natural speech patterns and interruptions. Easy to track content in the caption view with adaptive formatting.
+                  </p>
+                  
+                  <div className="bg-muted/60 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-border/30">
+                    <div className="space-y-3 text-muted-foreground font-light">
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-foreground rounded-full mr-4"></div>
+                        <span className="text-sm sm:text-base">Natural pause detection</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-foreground rounded-full mr-4"></div>
+                        <span className="text-sm sm:text-base">Interruption handling</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-foreground rounded-full mr-4"></div>
+                        <span className="text-sm sm:text-base">Constant formatting</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-foreground rounded-full mr-4"></div>
+                        <span className="text-sm sm:text-base">Real-time UI response</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -240,46 +243,46 @@ export default function Home() {
         {/* Section 4: Open Source & Privacy */}
         <section className="py-24 bg-background">
           <div className="max-w-7xl mx-auto px-6 sm:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left side - Icon/Animation */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+              {/* Left side - Simple Icon */}
               <div className="flex justify-center">
-                <div className="relative">
-                  <div className="w-64 h-64 bg-foreground rounded-3xl flex items-center justify-center shadow-lg group hover:scale-105 transition-transform duration-300">
-                    <div className="flex flex-col items-center space-y-4">
-                      <Shield className="w-20 h-20 text-background" />
-                      <Github className="w-16 h-16 text-background" />
-                    </div>
+                <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 border-2 border-border/30 rounded-3xl flex items-center justify-center group hover:border-border/50 transition-all duration-300">
+                  <div className="flex flex-col items-center space-y-3 sm:space-y-4">
+                    <Shield className="w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 text-foreground/70 group-hover:text-foreground transition-colors duration-300" />
+                    <Github className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 text-foreground/70 group-hover:text-foreground transition-colors duration-300" />
                   </div>
                 </div>
               </div>
               
-              {/* Right side - Content */}
-              <div className="text-left">
-                <h2 className="text-5xl font-extralight text-foreground mb-8 tracking-tight">Open Source & Secure</h2>
-                <p className="text-xl text-muted-foreground mb-12 leading-relaxed font-light">
-                  Built in the open with complete transparency. Your data stays on your device - no cloud processing, no data collection, no privacy concerns.
-                </p>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="bg-muted rounded-2xl p-6 border border-border">
-                    <h3 className="text-foreground font-light mb-4 flex items-center">
-                      <Github className="w-5 h-5 mr-2" />
-                      Open Source
-                    </h3>
-                    <p className="text-muted-foreground text-sm font-light">MIT licensed, full transparency</p>
+              {/* Right side - Content Panel */}
+              <div className="bg-muted/20 backdrop-blur-sm rounded-3xl p-6 sm:p-8 lg:p-10 border border-border/20 shadow-lg">
+                <div className="text-left">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-foreground mb-6 lg:mb-8 tracking-tight">Open Source & Secure</h2>
+                  <p className="text-lg sm:text-xl text-muted-foreground mb-8 lg:mb-12 leading-relaxed font-light">
+                    Built in the open with complete transparency. Your data stays on your device - no cloud processing, no data collection, no privacy concerns.
+                  </p>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 lg:mb-8">
+                    <div className="bg-background/60 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-border/30">
+                      <h3 className="text-foreground font-light mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
+                        <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                        Open Source
+                      </h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm font-light">MIT licensed, full transparency</p>
+                    </div>
+                    <div className="bg-background/60 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-border/30">
+                      <h3 className="text-foreground font-light mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
+                        <Shield className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                        Privacy First
+                      </h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm font-light">Local processing only, more details in the repository</p>
+                    </div>
                   </div>
-                  <div className="bg-muted rounded-2xl p-6 border border-border">
-                    <h3 className="text-foreground font-light mb-4 flex items-center">
-                      <Shield className="w-5 h-5 mr-2" />
-                      Privacy First
-                    </h3>
-                    <p className="text-muted-foreground text-sm font-light">Local processing only</p>
-                  </div>
+                  
+                  <a href="https://github.com/wayne-xyz/Livcap" className="inline-flex items-center text-foreground hover:text-muted-foreground transition-colors font-light text-sm sm:text-base">
+                  Explore the repository <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2" />
+                  </a>
                 </div>
-                
-                <a href="https://github.com/wayne-xyz/Livcap" className="inline-flex items-center mt-8 text-foreground hover:text-muted-foreground transition-colors font-light">
-                  View Repository <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
               </div>
             </div>
           </div>
@@ -288,42 +291,44 @@ export default function Home() {
         {/* Section 5: What's Next */}
         <section className="py-24 bg-muted">
           <div className="max-w-7xl mx-auto px-6 sm:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left side - Icon/Animation */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+              {/* Left side - Simple Icon */}
               <div className="flex justify-center">
-                <div className="w-64 h-64 bg-foreground rounded-3xl flex items-center justify-center group hover:scale-105 transition-transform duration-300">
-                  <div className="flex flex-col items-center space-y-4">
-                    <Languages className="w-20 h-20 text-background" />
-                    <Zap className="w-16 h-16 text-background" />
+                <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 border-2 border-border/30 rounded-3xl flex items-center justify-center group hover:border-border/50 transition-all duration-300">
+                  <div className="flex flex-col items-center space-y-3 sm:space-y-4">
+                    <Languages className="w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 text-foreground/70 group-hover:text-foreground transition-colors duration-300" />
+                    <Zap className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 text-foreground/70 group-hover:text-foreground transition-colors duration-300" />
                   </div>
                 </div>
               </div>
               
-              {/* Right side - Content */}
-              <div className="text-left">
-                <div className="inline-flex items-center px-4 py-2 bg-background rounded-full text-foreground text-sm font-light mb-8">
-                  <Rocket className="w-4 h-4 mr-2" />
-                  In Development • Coming Soon
-                </div>
-                <h2 className="text-5xl font-extralight text-foreground mb-8 tracking-tight">What's Next</h2>
-                <p className="text-xl text-muted-foreground mb-12 leading-relaxed font-light">
-                  Exciting new features coming soon. Real-time translation and even faster performance.
-                </p>
-                
-                <div className="space-y-6">
-                  <div className="bg-background rounded-2xl p-6">
-                    <h3 className="text-foreground font-light mb-3 flex items-center">
-                      <Languages className="w-5 h-5 mr-2" />
-                      Real-time Translation
-                    </h3>
-                    <p className="text-muted-foreground text-sm font-light">Translate captions to multiple languages in real-time</p>
+              {/* Right side - Content Panel */}
+              <div className="bg-background/20 backdrop-blur-sm rounded-3xl p-6 sm:p-8 lg:p-10 border border-border/20 shadow-lg">
+                <div className="text-left">
+                  <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-muted/60 backdrop-blur-sm rounded-full text-foreground text-xs sm:text-sm font-light mb-6 lg:mb-8 border border-border/30">
+                    <Rocket className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
+                    In Development • Coming Soon
                   </div>
-                  <div className="bg-background rounded-2xl p-6">
-                    <h3 className="text-foreground font-light mb-3 flex items-center">
-                      <Zap className="w-5 h-5 mr-2" />
-                      Even Faster Performance
-                    </h3>
-                    <p className="text-muted-foreground text-sm font-light">Sub-100ms latency with advanced optimization</p>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-foreground mb-6 lg:mb-8 tracking-tight">What's Next</h2>
+                  <p className="text-lg sm:text-xl text-muted-foreground mb-8 lg:mb-12 leading-relaxed font-light">
+                    Exciting new features coming soon. Real-time translation and even faster performance.
+                  </p>
+                  
+                  <div className="space-y-4 sm:space-y-6">
+                    <div className="bg-muted/60 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-border/30">
+                      <h3 className="text-foreground font-light mb-3 flex items-center text-sm sm:text-base">
+                        <Languages className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                        Real-time Translation
+                      </h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm font-light">Translate captions to multiple languages in real-time</p>
+                    </div>
+                    <div className="bg-muted/60 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-border/30">
+                      <h3 className="text-foreground font-light mb-3 flex items-center text-sm sm:text-base">
+                        <Zap className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                        Even Faster Performance
+                      </h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm font-light">Faster than fastest</p>
+                    </div>
                   </div>
                 </div>
               </div>
