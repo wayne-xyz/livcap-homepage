@@ -1,20 +1,26 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Shield, Zap, Mic, ArrowRight, Github, Code, Heart, Clock, TrendingUp, AudioLines, Type, Globe, Rocket } from 'lucide-react';
 import Image from 'next/image';
-import appIconLight from './appIcon_light.png';
 import { ThemeSwitcher } from '@/components/theme-switcher';
 import { useTheme } from 'next-themes';
-import { IconAnimation } from '@/components/icon-animation';
+import { PageLoadAnimation } from '@/components/page-load-animation';
+import { usePageAnimation } from '@/hooks/use-page-animation';
 
 export default function Home() {
   const [year, setYear] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [pageLoadComplete, setPageLoadComplete] = useState(false);
   const { resolvedTheme } = useTheme();
+  const { getAnimationClass } = usePageAnimation(pageLoadComplete);
 
   useEffect(() => {
     setYear(new Date().getFullYear());
     setMounted(true);
+  }, []);
+
+  const handlePageLoadComplete = useCallback(() => {
+    setPageLoadComplete(true);
   }, []);
 
   // Don't render theme-dependent content until mounted
@@ -25,14 +31,17 @@ export default function Home() {
   console.log('Current theme:', resolvedTheme); // Debug info
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Navigation */}
-      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-background/90 backdrop-blur-md border border-border rounded-2xl">
+    <PageLoadAnimation onAnimationComplete={handlePageLoadComplete}>
+            <div className="min-h-screen bg-background text-foreground">
+        {pageLoadComplete ? (
+          <>
+        {/* Navigation */}
+        <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-background/90 backdrop-blur-md border border-border rounded-2xl">
         <div className="px-6 sm:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4 mr-8">
               <Image 
-                src={appIconLight} 
+                src="/128-mac.png" 
                 alt="Livcap Logo" 
                 width={32}
                 height={32}
@@ -56,34 +65,36 @@ export default function Home() {
         </div>
       </nav>
 
+
+            
+
+
+
       {/* Hero Section */}
       <section className="pt-32 pb-24 px-6 sm:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center px-4 py-2 bg-muted rounded-full text-foreground text-sm font-light mb-12">
-              <Code className="w-4 h-4 mr-2" />
-              Open Source • Privacy First • Local Processing
-            </div>
-
-            
-            {/* Rive Animation */}
-            <div className="flex justify-center mb-12">
-              <IconAnimation 
-                width={800} 
-                height={800} 
-                animationName="Timeline 1"
-                className="hover:scale-105 transition-transform duration-300"
+          <div className="text-center max-w-4xl mx-auto ">
+           
+            {/* Animated App Icon */}
+            <div className={`flex justify-center w-full mb-12 ${getAnimationClass('icon')}`}>
+              <Image 
+                src="/1024-mac.png"
+                alt="Livcap App Icon"
+                width={800}  /* Max size */
+                height={800} /* Max size */
+                className="object-contain w-full h-full" /* Let the container control the size */
               />
             </div>
 
 
-            <h1 className="text-6xl sm:text-8xl font-extralight text-foreground leading-none mb-8 tracking-tight">
+
+            <h1 className={`text-6xl sm:text-8xl font-extralight text-foreground leading-none mb-8 tracking-tight ${getAnimationClass('title')}`}>
               Live Captions
               <span className="block font-light">
                 Simplified
               </span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-12 leading-relaxed font-light max-w-3xl mx-auto">
+            <p className={`text-xl text-muted-foreground mb-12 leading-relaxed font-light max-w-3xl mx-auto ${getAnimationClass('subtitle')}`}>
               The most private, open source live captioning app for macOS.
               One-click activation, lightning-fast local processing, zero data sharing.
             </p>
@@ -91,11 +102,11 @@ export default function Home() {
 
             
             {/* Coming Soon Notice - Using conditional styling */}
-            <div className={`inline-flex items-center px-6 py-3 rounded-xl text-base font-light mb-16 ${
+            <div className={`inline-flex items-center px-6 py-3 rounded-xl text-base font-light mb-16 border ${getAnimationClass('notice')} ${
               resolvedTheme === 'dark' 
                 ? 'bg-blue-900/20 border-blue-800 text-blue-200' 
                 : 'bg-blue-50 border-blue-200 text-blue-950'
-            } border`}>
+            }`}>
               <Clock className="w-5 h-5 mr-3" />
               <div className="text-left">
                 <div className="font-medium">macOS App Coming Soon</div>
@@ -103,7 +114,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <div className={`flex flex-col sm:flex-row items-center justify-center gap-6 ${getAnimationClass('buttons')}`}>
               <a href="https://github.com/wayne-xyz/Livcap" className="group bg-foreground text-background px-10 py-4 rounded-xl font-light text-lg hover:bg-primary/90 transition-all duration-300 flex items-center">
                 <Github className="w-5 h-5 mr-3" />
                 View Source Code
@@ -119,6 +130,7 @@ export default function Home() {
         </div>
       </section>
 
+      <div className={getAnimationClass('sections')}>
       {/* Open Source Section */}
       <section id="opensource" className="py-24 bg-muted">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
@@ -395,6 +407,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </div>
 
       {/* Download CTA */}
       <section className="py-24 bg-foreground">
@@ -416,6 +429,9 @@ export default function Home() {
           <p className="text-sm text-muted-foreground">&copy; {year} Livcap. All rights reserved.</p>
         </div>
       </section>
+        </>
+        ) : null}
     </div>
+    </PageLoadAnimation>
   );
 }

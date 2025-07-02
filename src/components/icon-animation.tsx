@@ -43,11 +43,9 @@ export function IconAnimation({
   if (!mounted) {
     return (
       <div 
-        className={`flex items-center justify-center bg-muted rounded-lg ${className}`}
-        style={{ width, height }}
-      >
-        <div className="animate-pulse text-muted-foreground text-sm">Loading...</div>
-      </div>
+        className={className}
+        style={{ width: `${width}px`, height: `${height}px` }}
+      />
     );
   }
 
