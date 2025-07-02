@@ -33,7 +33,7 @@ export function PageLoadAnimation({ children, onAnimationComplete }: PageLoadAni
     const timer2 = setTimeout(() => {
       setAnimationPhase('complete');
       callbackRef.current?.();
-    }, riveAnimationDuration + 1500); // After background shrink completes, immediately complete
+    }, riveAnimationDuration + 800); // After background shrink completes, immediately complete
 
     return () => {
       clearTimeout(timer1);
@@ -66,7 +66,7 @@ export function PageLoadAnimation({ children, onAnimationComplete }: PageLoadAni
 
       {/* White Background Overlay - Circular Shrink */}
       <div 
-        className="absolute inset-0 transition-all duration-1500 ease-out z-20"
+        className="absolute inset-0 transition-all duration-800 ease-out z-20"
         style={{
           backgroundColor: '#ffffff',
           clipPath: animationPhase === 'backgroundShrinking'
