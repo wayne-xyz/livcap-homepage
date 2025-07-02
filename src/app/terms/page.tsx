@@ -40,7 +40,7 @@ export default function Terms() {
               
               <h2 className="text-2xl font-extralight text-foreground mb-6">Description of Service</h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Livcap is a macOS application that provides real-time live captioning for audio input from microphones and system audio. The application processes audio locally on your device using Apple's built-in speech recognition frameworks and APIs.
+                Livcap is a macOS application that provides real-time live captioning for audio input from microphones and system audio. The application processes audio locally on your device using Apple&apos;s built-in speech recognition frameworks and APIs.
               </p>
               
               <div className="bg-background/60 backdrop-blur-sm rounded-2xl p-6 border border-border/30 mb-8">
@@ -93,7 +93,7 @@ export default function Terms() {
               
               <h2 className="text-2xl font-extralight text-foreground mb-6">MIT License Requirements</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                When using, modifying, or distributing Livcap's source code, you must:
+                When using, modifying, or distributing Livcap&apos;s source code, you must:
               </p>
               <ul className="text-muted-foreground space-y-3 mb-8">
                 <li>• Include the original MIT License text</li>
@@ -103,7 +103,7 @@ export default function Terms() {
               
               <h2 className="text-2xl font-extralight text-foreground mb-6">Disclaimer of Warranties</h2>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                Livcap is provided "AS IS" without warranty of any kind. We make no guarantees about:
+                Livcap is provided &quot;AS IS&quot; without warranty of any kind. We make no guarantees about:
               </p>
               <ul className="text-muted-foreground space-y-3 mb-8">
                 <li>• Accuracy of speech recognition or captions</li>
@@ -131,7 +131,7 @@ export default function Terms() {
               
               <h2 className="text-2xl font-extralight text-foreground mb-6">Privacy and Data Handling</h2>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                Please refer to our Privacy Policy for detailed information about how Livcap handles data. In summary: we don't collect, store, or transmit any of your personal data or audio content.
+                Please refer to our Privacy Policy for detailed information about how Livcap handles data. In summary: we don&apos;t collect, store, or transmit any of your personal data or audio content.
               </p>
               
               <h2 className="text-2xl font-extralight text-foreground mb-6">Modifications to Terms</h2>

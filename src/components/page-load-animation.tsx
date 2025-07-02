@@ -10,7 +10,6 @@ interface PageLoadAnimationProps {
 
 export function PageLoadAnimation({ children, onAnimationComplete }: PageLoadAnimationProps) {
   const [animationPhase, setAnimationPhase] = useState<'loading' | 'backgroundShrinking' | 'complete'>('loading');
-  const [showContent, setShowContent] = useState(false);
   const [iconSize, setIconSize] = useState({ width: 800, height: 800 });
   const callbackRef = useRef(onAnimationComplete);
 
@@ -47,7 +46,6 @@ export function PageLoadAnimation({ children, onAnimationComplete }: PageLoadAni
     // Phase 1: Start background shrinking (keep icon visible)
     const timer1 = setTimeout(() => {
       setAnimationPhase('backgroundShrinking');
-      setShowContent(true);
     }, riveAnimationDuration); // this is start point for background shrinking
 
     // Phase 2: Complete animation (icon disappears immediately, no fading)

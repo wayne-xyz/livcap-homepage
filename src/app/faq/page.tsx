@@ -18,7 +18,7 @@ const faqData: FAQItem[] = [
   {
     id: 'what-is-livcap',
     question: 'What is Livcap?',
-    answer: 'Livcap is a privacy-first live captioning application for macOS that provides real-time transcription of both microphone input and system audio. It processes everything locally on your device using Apple\'s built-in speech recognition frameworks.',
+    answer: 'Livcap is a privacy-first live captioning application for macOS that provides real-time transcription of both microphone input and system audio. It processes everything locally on your device using Apple&apos;s built-in speech recognition frameworks.',
     category: 'general',
     icon: MessageCircle
   },

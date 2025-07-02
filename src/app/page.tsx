@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useCallback } from 'react';
-import { Shield, Zap, Mic, ArrowRight, Github, Code, Heart, Clock, TrendingUp, AudioLines, Type, Globe, Rocket, Laptop, Languages, SplitSquareHorizontal, Monitor } from 'lucide-react';
+import { Shield, Zap, ArrowRight, Github, Clock, Rocket, Languages, SplitSquareHorizontal } from 'lucide-react';
 import Image from 'next/image';
 import { Navigation } from '@/components/navigation';
 import { useTheme } from 'next-themes';
@@ -11,7 +11,6 @@ import { AudioToggleButton } from '@/components/audio-toggle-button';
 import { Footer } from '@/components/footer';
 
 export default function Home() {
-  const [year, setYear] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
   const [pageLoadComplete, setPageLoadComplete] = useState(false);
   const [shouldShowAnimation, setShouldShowAnimation] = useState(true);
@@ -19,7 +18,6 @@ export default function Home() {
   const { getAnimationClass } = usePageAnimation(pageLoadComplete);
 
   useEffect(() => {
-    setYear(new Date().getFullYear());
     setMounted(true);
     
     // Check if animation should be skipped
@@ -324,7 +322,7 @@ export default function Home() {
                     <Rocket className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                     In Development • Coming Soon
                   </div>
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-foreground mb-6 lg:mb-8 tracking-tight">What's Next</h2>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-foreground mb-6 lg:mb-8 tracking-tight">What&apos;s Next</h2>
                   <p className="text-lg sm:text-xl text-muted-foreground mb-8 lg:mb-12 leading-relaxed font-light">
                     Exciting new features coming soon. Real-time translation and even faster performance.
                   </p>
