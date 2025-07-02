@@ -75,16 +75,7 @@ export function PageLoadAnimation({ children, onAnimationComplete }: PageLoadAni
         }}
       />
 
-      {/* Content Layer (hidden initially) */}
-      <div 
-        className={`absolute inset-0 z-10 transition-opacity duration-1000 ${
-          showContent ? 'opacity-100' : 'opacity-100'
-        }`}
-      >
-        <div className="relative">
-          {children}
-        </div>
-      </div>
+
     </div>
   );
 } 
