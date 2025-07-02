@@ -222,7 +222,7 @@ export default function FAQ() {
           <div className="mt-16 bg-muted/20 backdrop-blur-sm rounded-3xl p-8 border border-border/20 shadow-lg text-center">
             <h2 className="text-2xl font-extralight text-foreground mb-4">Still have questions?</h2>
             <p className="text-muted-foreground mb-6 leading-relaxed font-light">
-              Can't find what you're looking for? Open an issue on our GitHub repository and our community will help.
+              Can&apos;t find what you&apos;re looking for? Open an issue on our GitHub repository and our community will help.
             </p>
             <a 
               href="https://github.com/wayne-xyz/Livcap/issues" 

@@ -56,7 +56,7 @@ export default function Terms() {
               <div className="bg-background/60 backdrop-blur-sm rounded-2xl p-6 border border-border/30 mb-8">
                 <h3 className="text-xl font-light text-foreground mb-4">🏠 Local Processing</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Livcap operates entirely on your device. No data is collected, transmitted, or stored on external servers. All audio processing happens locally using your Mac's hardware.
+                  Livcap operates entirely on your device. No data is collected, transmitted, or stored on external servers. All audio processing happens locally using your Mac&apos;s hardware.
                 </p>
               </div>
               
