@@ -89,33 +89,38 @@ export default function Home() {
         <div className={getAnimationClass('sections')}>
         
         {/* Section 1: Faster Than Ever */}
-        <section className="py-24 bg-muted">
-          <div className="max-w-7xl mx-auto px-6 sm:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left side - Animation */}
-              <div className="flex justify-center">
-                <LiveCaptionDemo />
-              </div>
-              
-              {/* Right side - Content */}
-              <div className="text-left">
-                <h2 className="text-5xl font-extralight text-foreground mb-8 tracking-tight">Faster Than Ever</h2>
-                <p className="text-xl text-muted-foreground mb-12 leading-relaxed font-light">
-                  Optimized performance delivers faster transcription with improved efficiency compared to macOS built-in live captions.
-                </p>
-                
-                <div className="grid grid-cols-2 gap-8 mb-8">
-                  <div className="bg-background rounded-2xl p-6 text-center">
-                    <div className="text-4xl font-extralight text-foreground mb-2">1.7x</div>
-                    <div className="text-muted-foreground font-light">Word-level Lead Rate</div>
+        <section className="py-24 bg-muted relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 relative">
+            {/* Background Animation - Full Width */}
+            <div className="absolute inset-0 flex items-center  ">
+              <LiveCaptionDemo />
+            </div>
+            
+            {/* Content Overlay */}
+            <div className="relative z-10 flex justify-end">
+              {/* Right side - Content Panel */}
+              <div className="bg-background/20 backdrop-blur-md border border-border/50 rounded-3xl p-8 lg:p-12 max-w-lg lg:max-w-xl shadow-xl">
+                <div className="text-left">
+                  <h2 className="text-5xl font-extralight text-foreground mb-8 tracking-tight">Faster Than Ever</h2>
+                  <p className="text-xl text-muted-foreground mb-12 leading-relaxed font-light">
+                    Optimized performance delivers faster transcription with improved efficiency compared to macOS built-in live captions.
+                  </p>
+                  
+                  <div className="grid grid-cols-2 gap-8 mb-8">
+                    <div className="bg-muted/60 backdrop-blur-sm rounded-2xl p-6 text-center border border-border/30">
+                      <div className="text-4xl font-extralight text-foreground mb-2">1.7x</div>
+                      <div className="text-muted-foreground font-light">Word-level Lead Rate<sup>*</sup></div>
+                    </div>
+                    <div className="bg-muted/60 backdrop-blur-sm rounded-2xl p-6 text-center border border-border/30">
+                      <div className="text-4xl font-extralight text-foreground mb-2">10%</div>
+                      <div className="text-muted-foreground font-light">Latency Reduction<sup>*</sup></div>
+                    </div>
                   </div>
-                  <div className="bg-background rounded-2xl p-6 text-center">
-                    <div className="text-4xl font-extralight text-foreground mb-2">10%</div>
-                    <div className="text-muted-foreground font-light">Latency Reduction</div>
-                  </div>
+                  
+                  <p className="text-xs text-muted-foreground font-light">
+                    <sup>*</sup> Based on carefully internal testing. Results may vary depending on audio quality and system configuration. More information shows up in the <a href="https://github.com/wayne-xyz/Livcap" className="text-foreground font-light">GitHub</a>.
+                  </p>
                 </div>
-                
-                <p className="text-sm text-muted-foreground font-light">vs. macOS Built-in Live Caption</p>
               </div>
             </div>
           </div>

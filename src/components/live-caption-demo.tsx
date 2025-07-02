@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { Settings } from 'lucide-react';
 
 interface CaptionViewProps {
   text: string;
@@ -31,16 +33,31 @@ const CaptionView: React.FC<CaptionViewProps> = ({ text, speed, label, isActive 
     return () => clearInterval(interval);
   }, [currentWordIndex, words, speed, isActive]);
 
+  const isLivcap = label.toLowerCase().includes('livcap');
+
   return (
-    <div className="flex flex-col space-y-3">
-      <div className="text-xs text-muted-foreground font-medium uppercase tracking-wide">{label}</div>
+    <div className="w-full space-y-6">
+      <div className="flex items-center space-x-3">
+        {isLivcap ? (
+          <Image 
+            src="/128-mac.png" 
+            alt="Livcap Icon" 
+            width={20} 
+            height={20} 
+            className="rounded-md"
+          />
+        ) : (
+          <Settings className="w-5 h-5 text-muted-foreground" />
+        )}
+        <div className="text-sm text-muted-foreground font-medium uppercase tracking-wide">{label}</div>
+      </div>
       <div 
-        className="bg-gray-900 text-gray-50 p-4 rounded-lg min-h-[64px] flex items-center shadow-sm border border-gray-800"
-        style={{ aspectRatio: '4/1' }}
+        className="p-8 rounded-2xl min-h-[120px] flex items-center shadow-sm border border-gray-400/50 backdrop-blur-sm "
+        style={{ width: '100%' }}
       >
-        <span className="text-sm font-light leading-relaxed">
+        <span className="text-2xl font-light leading-relaxed w-full text-left">
           {displayText}
-          {isActive && <span className="animate-pulse ml-1 text-gray-400">|</span>}
+          {isActive && isLivcap && <span className="animate-pulse ml-1 text-gray-400">...</span>}
         </span>
       </div>
     </div>
@@ -51,7 +68,7 @@ export function LiveCaptionDemo() {
   const [animationCycle, setAnimationCycle] = useState(0);
   const [isActive, setIsActive] = useState(false);
 
-  const demoText = "Live captions are working perfectly right now";
+  const demoText = "Innovation is the outcome of a habit, not a random act.";
   const systemSpeed = 420; // slower
   const livcapSpeed = 250; // faster (1.7x faster approximately)
 
@@ -78,24 +95,20 @@ export function LiveCaptionDemo() {
   }, [animationCycle]);
 
   return (
-    <div className="w-full max-w-sm space-y-6 p-6 bg-background rounded-2xl border border-border">
-      <div className="text-center mb-4">
-        <h3 className="text-lg font-light text-foreground mb-1">Live Caption Comparison</h3>
-        <p className="text-xs text-muted-foreground">Real-time performance demo</p>
-      </div>
-      
+    <div className="w-full max-w-4xl space-y-12 p-8">
+          <CaptionView
+        text={demoText}
+        speed={livcapSpeed}
+        label="Livcap"
+        isActive={isActive}
+      />
       <CaptionView
         text={demoText}
         speed={systemSpeed}
         label="macOS System Default"
         isActive={isActive}
       />
-      <CaptionView
-        text={demoText}
-        speed={livcapSpeed}
-        label="Livcap (1.7x faster)"
-        isActive={isActive}
-      />
+
     </div>
   );
 }
