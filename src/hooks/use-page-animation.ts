@@ -6,12 +6,8 @@ export function usePageAnimation(pageLoadComplete: boolean) {
   useEffect(() => {
     if (!pageLoadComplete) return;
     
-    // Start page settlement animation after page-load-animation completes
-    const timer = setTimeout(() => {
-      setAnimationStarted(true);
-    }, -100); // Small delay to see initial centered state
-    
-    return () => clearTimeout(timer);
+    // Start immediately since content is already rendered
+    setAnimationStarted(true);
   }, [pageLoadComplete]);
 
   return {

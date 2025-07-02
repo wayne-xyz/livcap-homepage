@@ -20,6 +20,7 @@ export default function Home() {
   }, []);
 
   const handlePageLoadComplete = useCallback(() => {
+    console.log('🎬 PageLoadAnimation complete, content now visible & animations starting');
     setPageLoadComplete(true);
   }, []);
 
@@ -32,9 +33,8 @@ export default function Home() {
 
   return (
     <PageLoadAnimation onAnimationComplete={handlePageLoadComplete}>
-            <div className="min-h-screen bg-background text-foreground">
-        {pageLoadComplete ? (
-          <>
+      {/* Always render and show content */}
+      <div className="min-h-screen bg-background text-foreground">
         {/* Navigation */}
         <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-background/90 backdrop-blur-md border border-border rounded-2xl">
         <div className="px-6 sm:px-8">
@@ -65,11 +65,6 @@ export default function Home() {
         </div>
       </nav>
 
-
-            
-
-
-
       {/* Hero Section */}
       <section className="pt-32 pb-24 px-6 sm:px-8">
         <div className="max-w-6xl mx-auto">
@@ -86,8 +81,6 @@ export default function Home() {
               />
             </div>
 
-
-
             <h1 className={`text-6xl sm:text-8xl font-extralight text-foreground leading-none mb-8 tracking-tight ${getAnimationClass('title')}`}>
               Live Captions
               <span className="block font-light">
@@ -98,8 +91,6 @@ export default function Home() {
               The most private, open source live captioning app for macOS.
               One-click activation, lightning-fast local processing, zero data sharing.
             </p>
-            
-
             
             {/* Coming Soon Notice - Using conditional styling */}
             <div className={`inline-flex items-center px-6 py-3 rounded-xl text-base font-light mb-16 border ${getAnimationClass('notice')} ${
@@ -429,8 +420,6 @@ export default function Home() {
           <p className="text-sm text-muted-foreground">&copy; {year} Livcap. All rights reserved.</p>
         </div>
       </section>
-        </>
-        ) : null}
     </div>
     </PageLoadAnimation>
   );
