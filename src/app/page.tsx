@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useCallback } from 'react';
-import { Shield, Zap, Mic, ArrowRight, Github, Code, Heart, Clock, TrendingUp, AudioLines, Type, Globe, Rocket } from 'lucide-react';
+import { Shield, Zap, Mic, ArrowRight, Github, Code, Heart, Clock, TrendingUp, AudioLines, Type, Globe, Rocket, Laptop, Languages, SplitSquareHorizontal, Monitor } from 'lucide-react';
 import Image from 'next/image';
 import { Navigation } from '@/components/navigation';
 import { useTheme } from 'next-themes';
@@ -86,302 +86,284 @@ export default function Home() {
         </section>
 
         <div className={getAnimationClass('sections')}>
-        {/* Open Source Section */}
-        <section id="opensource" className="py-24 bg-muted">
+        
+        {/* Section 1: Faster Than Ever */}
+        <section className="py-24 bg-muted">
           <div className="max-w-7xl mx-auto px-6 sm:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-5xl font-extralight text-foreground mb-6 tracking-tight">Built in the Open</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
-                Livcap is completely open source. Inspect the code, contribute improvements, or build your own version.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-12">
-              <div className="group text-center">
-                <div className="w-16 h-16 bg-foreground rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:scale-105 transition-transform duration-300">
-                  <Github className="w-8 h-8 text-background" />
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left side - Icon/Animation */}
+              <div className="flex justify-center">
+                <div className="w-64 h-64 bg-foreground rounded-3xl flex items-center justify-center group hover:scale-105 transition-transform duration-300">
+                  <TrendingUp className="w-32 h-32 text-background" />
                 </div>
-                <h3 className="text-2xl font-light text-foreground mb-4">Open Source</h3>
-                <p className="text-muted-foreground leading-relaxed font-light mb-6">
-                  Full source code available on GitHub. MIT licensed for maximum freedom and transparency.
+              </div>
+              
+              {/* Right side - Content */}
+              <div className="text-left">
+                <h2 className="text-5xl font-extralight text-foreground mb-8 tracking-tight">Faster Than Ever</h2>
+                <p className="text-xl text-muted-foreground mb-12 leading-relaxed font-light">
+                  Optimized performance delivers faster transcription with improved efficiency compared to macOS built-in live captions.
                 </p>
-                <a href="https://github.com/wayne-xyz/Livcap" className="text-foreground hover:text-muted-foreground transition-colors font-light flex items-center justify-center">
+                
+                <div className="grid grid-cols-2 gap-8 mb-8">
+                  <div className="bg-background rounded-2xl p-6 text-center">
+                    <div className="text-4xl font-extralight text-foreground mb-2">1.7x</div>
+                    <div className="text-muted-foreground font-light">Word-level Lead Rate</div>
+                  </div>
+                  <div className="bg-background rounded-2xl p-6 text-center">
+                    <div className="text-4xl font-extralight text-foreground mb-2">10%</div>
+                    <div className="text-muted-foreground font-light">Latency Reduction</div>
+                  </div>
+                </div>
+                
+                <p className="text-sm text-muted-foreground font-light">vs. macOS Built-in Live Caption</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 2: Dual Audio Sources */}
+        <section className="py-24 bg-background">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left side - Icon/Animation */}
+              <div className="flex justify-center">
+                <div className="relative">
+                  <div className="w-64 h-64 bg-foreground rounded-3xl flex items-center justify-center shadow-lg group hover:scale-105 transition-transform duration-300">
+                    <div className="flex items-center space-x-8">
+                      <Mic className="w-16 h-16 text-background" />
+                      <div className="text-2xl text-muted-foreground">+</div>
+                      <Laptop className="w-16 h-16 text-background" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Right side - Content */}
+              <div className="text-left">
+                <h2 className="text-5xl font-extralight text-foreground mb-8 tracking-tight">Dual Audio Sources</h2>
+                <p className="text-xl text-muted-foreground mb-12 leading-relaxed font-light">
+                  Simultaneously capture and caption both microphone input and system audio. Perfect for meetings, calls, and presentations where you need to capture everything being said.
+                </p>
+                
+                <div className="bg-muted rounded-2xl p-6 border border-border">
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="flex items-center space-x-3">
+                      <Mic className="w-6 h-6 text-foreground" />
+                      <span className="text-foreground font-light">Microphone</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <Laptop className="w-6 h-6 text-foreground" />
+                      <span className="text-foreground font-light">System Audio</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 3: Smart Line Breaking */}
+        <section className="py-24 bg-muted">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left side - Icon/Animation */}
+              <div className="flex justify-center">
+                <div className="w-64 h-64 bg-foreground rounded-3xl flex items-center justify-center group hover:scale-105 transition-transform duration-300">
+                  <SplitSquareHorizontal className="w-32 h-32 text-background" />
+                </div>
+              </div>
+              
+              {/* Right side - Content */}
+              <div className="text-left">
+                <h2 className="text-5xl font-extralight text-foreground mb-8 tracking-tight">Smart Line Breaking</h2>
+                <p className="text-xl text-muted-foreground mb-12 leading-relaxed font-light">
+                  Intelligent sentence-sense line breaking responds to natural speech patterns and interruptions. Easy to track content in the caption view with adaptive formatting.
+                </p>
+                
+                <div className="bg-background rounded-2xl p-6">
+                  <div className="space-y-3 text-muted-foreground font-light">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-foreground rounded-full mr-4"></div>
+                      Natural pause detection
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-foreground rounded-full mr-4"></div>
+                      Interruption handling
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-foreground rounded-full mr-4"></div>
+                      Dynamic text formatting
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-foreground rounded-full mr-4"></div>
+                      Real-time UI response
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 4: Open Source & Privacy */}
+        <section className="py-24 bg-background">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left side - Icon/Animation */}
+              <div className="flex justify-center">
+                <div className="relative">
+                  <div className="w-64 h-64 bg-foreground rounded-3xl flex items-center justify-center shadow-lg group hover:scale-105 transition-transform duration-300">
+                    <div className="flex flex-col items-center space-y-4">
+                      <Shield className="w-20 h-20 text-background" />
+                      <Github className="w-16 h-16 text-background" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Right side - Content */}
+              <div className="text-left">
+                <h2 className="text-5xl font-extralight text-foreground mb-8 tracking-tight">Open Source & Secure</h2>
+                <p className="text-xl text-muted-foreground mb-12 leading-relaxed font-light">
+                  Built in the open with complete transparency. Your data stays on your device - no cloud processing, no data collection, no privacy concerns.
+                </p>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="bg-muted rounded-2xl p-6 border border-border">
+                    <h3 className="text-foreground font-light mb-4 flex items-center">
+                      <Github className="w-5 h-5 mr-2" />
+                      Open Source
+                    </h3>
+                    <p className="text-muted-foreground text-sm font-light">MIT licensed, full transparency</p>
+                  </div>
+                  <div className="bg-muted rounded-2xl p-6 border border-border">
+                    <h3 className="text-foreground font-light mb-4 flex items-center">
+                      <Shield className="w-5 h-5 mr-2" />
+                      Privacy First
+                    </h3>
+                    <p className="text-muted-foreground text-sm font-light">Local processing only</p>
+                  </div>
+                </div>
+                
+                <a href="https://github.com/wayne-xyz/Livcap" className="inline-flex items-center mt-8 text-foreground hover:text-muted-foreground transition-colors font-light">
                   View Repository <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </div>
-
-              <div className="group text-center">
-                <div className="w-16 h-16 bg-foreground rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:scale-105 transition-transform duration-300">
-                  <Heart className="w-8 h-8 text-background" />
-                </div>
-                <h3 className="text-2xl font-light text-foreground mb-4">Community Driven</h3>
-                <p className="text-muted-foreground leading-relaxed font-light mb-6">
-                  Built by developers, for developers. Contributions welcome from the community.
-                </p>
-                <a href="https://github.com/wayne-xyz/Livcap" className="text-foreground hover:text-muted-foreground transition-colors font-light flex items-center justify-center">
-                  Contribute <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
-              </div>
-
-              <div className="group text-center">
-                <div className="w-16 h-16 bg-foreground rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:scale-105 transition-transform duration-300">
-                  <Code className="w-8 h-8 text-background" />
-                </div>
-                <h3 className="text-2xl font-light text-foreground mb-4">Transparent</h3>
-                <p className="text-muted-foreground leading-relaxed font-light mb-6">
-                  No hidden code, no black boxes. Every line of code is open for inspection and audit.
-                </p>
-                <a href="https://github.com/wayne-xyz/Livcap" className="text-foreground hover:text-muted-foreground transition-colors font-light flex items-center justify-center">
-                  View Releases <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
-              </div>
             </div>
           </div>
         </section>
 
-        {/* Features Section */}
-        <section id="features" className="py-24 bg-background">
-          <div className="max-w-7xl mx-auto px-6 sm:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-5xl font-extralight text-foreground mb-6 tracking-tight">Next-Level Captioning</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
-                Revolutionary features that make Livcap the most advanced live captioning solution for macOS
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-12">
-              {/* Faster Than Ever */}
-              <div className="group text-center">
-                <div className="w-16 h-16 bg-foreground rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:scale-105 transition-transform duration-300">
-                  <TrendingUp className="w-8 h-8 text-background" />
-                </div>
-                <h3 className="text-2xl font-light text-foreground mb-4">Faster Than Ever</h3>
-                <p className="text-muted-foreground leading-relaxed font-light mb-6">
-                  Optimized performance delivers faster transcription with improved efficiency compared to macOS built-in live captions.
-                </p>
-                <div className="bg-muted rounded-xl p-4 mb-4">
-                  <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div className="text-center">
-                      <div className="text-2xl font-light text-foreground mb-1">10%</div>
-                      <div className="text-muted-foreground font-light">Latency Reduction</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-light text-foreground mb-1">1.7x</div>
-                      <div className="text-muted-foreground font-light">Word-level Lead Rate</div>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground font-light">vs. macOS Built-in Live Caption</p>
-              </div>
-
-              {/* Mixed Audio Sources */}
-              <div className="group text-center">
-                <div className="w-16 h-16 bg-foreground rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:scale-105 transition-transform duration-300">
-                  <AudioLines className="w-8 h-8 text-background" />
-                </div>
-                <h3 className="text-2xl font-light text-foreground mb-4">Dual Audio Sources</h3>
-                <p className="text-muted-foreground leading-relaxed font-light">
-                  Simultaneously capture and caption both microphone input and system audio. Perfect for meetings, calls, and presentations where you need to capture everything being said.
-                </p>
-                <div className="bg-muted rounded-xl p-4 mt-6">
-                  <div className="flex items-center justify-center space-x-4 text-sm">
-                    <div className="flex items-center">
-                      <Mic className="w-4 h-4 mr-2 text-foreground" />
-                      <span className="text-muted-foreground font-light">Microphone</span>
-                    </div>
-                    <div className="text-muted-foreground">+</div>
-                    <div className="flex items-center">
-                      <AudioLines className="w-4 h-4 mr-2 text-foreground" />
-                      <span className="text-muted-foreground font-light">System Audio</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Sentence Sense Line Breaking */}
-              <div className="group text-center">
-                <div className="w-16 h-16 bg-foreground rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:scale-105 transition-transform duration-300">
-                  <Type className="w-8 h-8 text-background" />
-                </div>
-                <h3 className="text-2xl font-light text-foreground mb-4">Smart Line Breaks</h3>
-                <p className="text-muted-foreground leading-relaxed font-light">
-                  Intelligent sentence-sense line breaking responds to natural speech patterns and interruptions. The UI adapts in real-time to your speaking rhythm for better readability.
-                </p>
-                <div className="bg-muted rounded-xl p-4 mt-6 text-left">
-                  <div className="text-sm text-muted-foreground font-light space-y-2">
-                    <div>✓ Natural pause detection</div>
-                    <div>✓ Interruption handling</div>
-                    <div>✓ Dynamic text formatting</div>
-                    <div>✓ Real-time UI response</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* What's Next Section */}
+        {/* Section 5: What's Next */}
         <section className="py-24 bg-muted">
           <div className="max-w-7xl mx-auto px-6 sm:px-8">
-            <div className="text-center mb-20">
-              <div className="inline-flex items-center px-4 py-2 bg-background rounded-full text-foreground text-sm font-light mb-8">
-                <Rocket className="w-4 h-4 mr-2" />
-                In Development • Coming Soon
-              </div>
-              <h2 className="text-5xl font-extralight text-foreground mb-6 tracking-tight">What&apos;s Next</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
-                Exciting new features planned for future versions. Help us build the future of live captioning.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-12 mb-16">
-              {/* Multi-Language Support */}
-              <div className="group text-center">
-                <div className="w-16 h-16 bg-background rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:scale-105 transition-transform duration-300 shadow-sm">
-                  <Globe className="w-8 h-8 text-foreground" />
-                </div>
-                <h3 className="text-2xl font-light text-foreground mb-4">Multi-Language Support</h3>
-                <p className="text-muted-foreground leading-relaxed font-light mb-6">
-                  Expanding beyond English to support multiple languages for global accessibility. Real-time transcription in your preferred language.
-                </p>
-                <div className="bg-background rounded-xl p-4 border border-border">
-                  <div className="text-sm text-muted-foreground font-light space-y-2">
-                    <div>🌍 Spanish, French, German</div>
-                    <div>🗾 Japanese, Korean, Chinese</div>
-                    <div>🌏 Portuguese, Italian, Dutch</div>
-                    <div>📝 And many more...</div>
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left side - Icon/Animation */}
+              <div className="flex justify-center">
+                <div className="w-64 h-64 bg-foreground rounded-3xl flex items-center justify-center group hover:scale-105 transition-transform duration-300">
+                  <div className="flex flex-col items-center space-y-4">
+                    <Languages className="w-20 h-20 text-background" />
+                    <Zap className="w-16 h-16 text-background" />
                   </div>
                 </div>
               </div>
-
-              {/* Enhanced Performance */}
-              <div className="group text-center">
-                <div className="w-16 h-16 bg-background rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:scale-105 transition-transform duration-300 shadow-sm">
-                  <Zap className="w-8 h-8 text-foreground" />
+              
+              {/* Right side - Content */}
+              <div className="text-left">
+                <div className="inline-flex items-center px-4 py-2 bg-background rounded-full text-foreground text-sm font-light mb-8">
+                  <Rocket className="w-4 h-4 mr-2" />
+                  In Development • Coming Soon
                 </div>
-                <h3 className="text-2xl font-light text-foreground mb-4">Even Faster</h3>
-                <p className="text-muted-foreground leading-relaxed font-light mb-6">
-                  Continuous performance improvements and optimization. We&apos;re pushing the boundaries of real-time transcription speed.
-                </p>
-                <div className="bg-background rounded-xl p-4 border border-border">
-                  <div className="text-sm text-muted-foreground font-light space-y-2">
-                    <div>⚡ Advanced model optimization</div>
-                    <div>🔧 Hardware acceleration</div>
-                    <div>📊 Reduced memory footprint</div>
-                    <div>🎯 Sub-100ms latency goal</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Contributors Call-to-Action */}
-            <div className="bg-background border border-border rounded-2xl p-8 text-center">
-              <div className="max-w-2xl mx-auto">
-                <h3 className="text-2xl font-light text-foreground mb-4">Want to Contribute?</h3>
-                <p className="text-muted-foreground mb-6 font-light">
-                  Help us improve Livcap. All contributions welcome.
+                <h2 className="text-5xl font-extralight text-foreground mb-8 tracking-tight">What's Next</h2>
+                <p className="text-xl text-muted-foreground mb-12 leading-relaxed font-light">
+                  Exciting new features coming soon. Real-time translation and even faster performance.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <a href="https://github.com/wayne-xyz/Livcap" className="bg-foreground text-background px-6 py-3 rounded-lg font-light hover:bg-primary/90 transition-colors flex items-center">
-                    <Github className="w-4 h-4 mr-2" />
-                    View on GitHub
-                  </a>
-                  <a href="https://github.com/wayne-xyz/Livcap/issues" className="border border-border text-foreground px-6 py-3 rounded-lg font-light hover:border-foreground transition-colors flex items-center">
-                    Report Issues
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Demo Preview Section */}
-        <section className="py-24 bg-muted">
-          <div className="max-w-6xl mx-auto px-6 sm:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-5xl font-extralight text-foreground mb-6 tracking-tight">See It In Action</h2>
-              <p className="text-xl text-muted-foreground font-light">Crystal clear captions, perfectly synchronized</p>
-            </div>
-            
-            <div className="relative">
-              <div className="bg-foreground rounded-3xl p-8 shadow-2xl">
-                <div className="flex items-center space-x-3 mb-8">
-                  <div className="w-3 h-3 bg-muted-foreground rounded-full"></div>
-                  <div className="w-3 h-3 bg-muted-foreground rounded-full"></div>
-                  <div className="w-3 h-3 bg-muted-foreground rounded-full"></div>
-                  <span className="text-muted-foreground text-sm ml-4 font-light">Livcap</span>
-                </div>
-                <div className="bg-background/10 rounded-2xl p-12 min-h-[320px] flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="inline-block p-6 bg-background/10 rounded-2xl mb-6">
-                      <Mic className="w-16 h-16 text-foreground" />
-                    </div>
-                    <p className="text-foreground text-xl mb-3 font-light">Live captions will appear here</p>
-                    <p className="text-muted-foreground font-light">Start speaking to see real-time transcription</p>
+                <div className="space-y-6">
+                  <div className="bg-background rounded-2xl p-6">
+                    <h3 className="text-foreground font-light mb-3 flex items-center">
+                      <Languages className="w-5 h-5 mr-2" />
+                      Real-time Translation
+                    </h3>
+                    <p className="text-muted-foreground text-sm font-light">Translate captions to multiple languages in real-time</p>
+                  </div>
+                  <div className="bg-background rounded-2xl p-6">
+                    <h3 className="text-foreground font-light mb-3 flex items-center">
+                      <Zap className="w-5 h-5 mr-2" />
+                      Even Faster Performance
+                    </h3>
+                    <p className="text-muted-foreground text-sm font-light">Sub-100ms latency with advanced optimization</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
+        
 
-        {/* Privacy Section */}
-        <section id="privacy" className="py-24 bg-muted">
-          <div className="max-w-5xl mx-auto px-6 sm:px-8">
-            <div className="text-center mb-20">
-              <div className="inline-block p-6 bg-background rounded-2xl mb-8 shadow-sm">
-                <Shield className="w-16 h-16 text-foreground" />
-              </div>
-              <h2 className="text-5xl font-extralight text-foreground mb-8 tracking-tight">Your Privacy, Our Priority</h2>
-              <p className="text-xl text-muted-foreground mb-12 leading-relaxed font-light max-w-3xl mx-auto">
-                Unlike cloud-based solutions, Livcap processes everything locally on your Mac. 
-                No internet connection required, no data collection, no privacy concerns.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-12">
-              <div className="bg-background border border-border p-8 rounded-2xl">
-                <h3 className="font-light text-foreground mb-6 text-xl">✓ What We Do</h3>
-                <ul className="space-y-4 text-muted-foreground font-light">
-                  <li>• Process audio locally on your device</li>
-                  <li>• Store preferences on your Mac only</li>
-                  <li>• Provide offline functionality</li>
-                  <li>• Open source all code for transparency</li>
-                </ul>
-              </div>
-              <div className="bg-background border border-border p-8 rounded-2xl">
-                <h3 className="font-light text-foreground mb-6 text-xl">✗ What We Don&apos;t Do</h3>
-                <ul className="space-y-4 text-muted-foreground font-light">
-                  <li>• Send audio to external servers</li>
-                  <li>• Collect personal information</li>
-                  <li>• Track your usage patterns</li>
-                  <li>• Hide code in proprietary systems</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
         </div>
 
-        {/* Download CTA */}
+   
+        {/* Footer Section */}
         <section className="py-24 bg-foreground">
-          <div className="max-w-4xl mx-auto text-center px-6 sm:px-8">
-            <h2 className="text-5xl font-extralight text-background mb-8 tracking-tight">Ready to Get Started?</h2>
-            <p className="text-xl text-muted-foreground mb-12 font-light">
-              Explore the source code on GitHub and follow development progress
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
-              <a href="https://github.com/wayne-xyz/Livcap" className="bg-background text-foreground px-10 py-4 rounded-xl font-light text-lg hover:bg-muted transition-colors flex items-center shadow-xl">
-                <Github className="w-5 h-5 mr-3" />
-                View on GitHub
-              </a>
-              <a href="https://github.com/wayne-xyz/Livcap" className="border border-muted-foreground text-background px-10 py-4 rounded-xl font-light text-lg hover:border-background transition-colors flex items-center">
-                <Heart className="w-5 h-5 mr-3" />
-                Star the Project
-              </a>
+          <div className="max-w-7xl mx-auto px-6 sm:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left side - App Icon */}
+              <div className="flex justify-center lg:justify-start">
+                <div className="flex flex-col items-center lg:items-start">
+                  <Image 
+                    src="/1024-mac.png"
+                    alt="Livcap App Icon"
+                    width={120}
+                    height={120}
+                    className="rounded-3xl mb-6"
+                  />
+                 
+                </div>
+              </div>
+              
+              {/* Right side - Links */}
+              <div className="text-center lg:text-left">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                  <div className="space-y-4">
+                    <h4 className="text-background font-light text-lg mb-6">Legal</h4>
+                    <div className="space-y-3">
+                      <a href="/privacy" className="block text-muted-foreground hover:text-background transition-colors font-light">
+                        Privacy Policy
+                      </a>
+                      <a href="/terms" className="block text-muted-foreground hover:text-background transition-colors font-light">
+                        Terms of Service
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <h4 className="text-background font-light text-lg mb-6">Support</h4>
+                    <div className="space-y-3">
+                      <a href="/contact" className="block text-muted-foreground hover:text-background transition-colors font-light">
+                        Contact
+                      </a>
+                      <a href="/faq" className="block text-muted-foreground hover:text-background transition-colors font-light">
+                        Frequently Asked Questions
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* GitHub link */}
+                <div className="mt-12 pt-8 border-t border-muted-foreground/20">
+                  <a href="https://github.com/wayne-xyz/Livcap" className="inline-flex items-center text-muted-foreground hover:text-background transition-colors font-light">
+                    <Github className="w-5 h-5 mr-2" />
+                    View on GitHub
+                  </a>
+                </div>
+              </div>
             </div>
-            <p className="text-sm text-muted-foreground">&copy; {year} Livcap. All rights reserved.</p>
+            
+            {/* Copyright */}
+            <div className="mt-16 pt-8 border-t border-muted-foreground/20 text-center">
+              <p className="text-sm text-muted-foreground">&copy; {year} Wayne-xyz. Released under the MIT License.</p>
+            </div>
           </div>
         </section>
       </div>
