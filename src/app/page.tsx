@@ -6,6 +6,7 @@ import { Navigation } from '@/components/navigation';
 import { useTheme } from 'next-themes';
 import { PageLoadAnimation } from '@/components/page-load-animation';
 import { usePageAnimation } from '@/hooks/use-page-animation';
+import { LiveCaptionDemo } from '@/components/live-caption-demo';
 
 export default function Home() {
   const [year, setYear] = useState<number | null>(null);
@@ -91,11 +92,9 @@ export default function Home() {
         <section className="py-24 bg-muted">
           <div className="max-w-7xl mx-auto px-6 sm:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left side - Icon/Animation */}
+              {/* Left side - Animation */}
               <div className="flex justify-center">
-                <div className="w-64 h-64 bg-foreground rounded-3xl flex items-center justify-center group hover:scale-105 transition-transform duration-300">
-                  <TrendingUp className="w-32 h-32 text-background" />
-                </div>
+                <LiveCaptionDemo />
               </div>
               
               {/* Right side - Content */}
