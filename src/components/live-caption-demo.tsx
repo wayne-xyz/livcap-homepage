@@ -68,9 +68,9 @@ export function LiveCaptionDemo() {
   const [animationCycle, setAnimationCycle] = useState(0);
   const [isActive, setIsActive] = useState(false);
 
-  const demoText = "Innovation is the outcome of a habit, not a random act.";
+  const demoText = "A labyrinth of ivy-clad brick pavilions and glass-topped corridors.";
   const systemSpeed = 420; // slower
-  const livcapSpeed = 250; // faster (1.7x faster approximately)
+  const livcapSpeed = 380; // faster (1.7x faster approximately)
 
   useEffect(() => {
     const startAnimation = () => {
