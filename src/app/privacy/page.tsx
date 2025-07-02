@@ -4,6 +4,7 @@ import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { Navigation } from '@/components/navigation';
+import { Footer } from '@/components/footer';
 
 export default function Privacy() {
   return (
@@ -120,6 +121,8 @@ export default function Privacy() {
           </div>
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 }

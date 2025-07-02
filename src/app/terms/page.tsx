@@ -4,6 +4,7 @@ import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { Navigation } from '@/components/navigation';
+import { Footer } from '@/components/footer';
 
 export default function Terms() {
   return (
@@ -170,6 +171,8 @@ export default function Terms() {
           </div>
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 }
