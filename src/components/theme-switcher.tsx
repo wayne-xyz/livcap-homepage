@@ -10,10 +10,11 @@ export function ThemeSwitcher() {
   return (
     <button
       onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
-      className="inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+      className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-lg hover:bg-muted"
+      aria-label="Toggle theme"
     >
-      <Sun className="h-6 w-6 dark:hidden" />
-      <Moon className="h-6 w-6 hidden dark:block" />
+      <Sun className="h-5 w-5 dark:hidden" />
+      <Moon className="h-5 w-5 hidden dark:block" />
       <span className="sr-only">Toggle theme</span>
     </button>
   );
