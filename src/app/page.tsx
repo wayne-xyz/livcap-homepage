@@ -7,6 +7,7 @@ import { useTheme } from 'next-themes';
 import { PageLoadAnimation } from '@/components/page-load-animation';
 import { usePageAnimation } from '@/hooks/use-page-animation';
 import { LiveCaptionDemo } from '@/components/live-caption-demo';
+import { AudioToggleButton } from '@/components/audio-toggle-button';
 
 export default function Home() {
   const [year, setYear] = useState<number | null>(null);
@@ -130,14 +131,28 @@ export default function Home() {
         <section className="py-24 bg-background">
           <div className="max-w-7xl mx-auto px-6 sm:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left side - Icon/Animation */}
+              {/* Left side - Interactive Audio Controls */}
               <div className="flex justify-center">
                 <div className="relative">
-                  <div className="w-64 h-64 bg-foreground rounded-3xl flex items-center justify-center shadow-lg group hover:scale-105 transition-transform duration-300">
+                  <div className="w-80 h-64 bg-gradient-to-br from-muted/50 to-muted/30 rounded-3xl flex items-center justify-center shadow-lg border border-border/20">
                     <div className="flex items-center space-x-8">
-                      <Mic className="w-16 h-16 text-background" />
-                      <div className="text-2xl text-muted-foreground">+</div>
-                      <Laptop className="w-16 h-16 text-background" />
+                      <AudioToggleButton 
+                        type="microphone" 
+                        initialState={true}
+                        onToggle={(isOn) => console.log('Microphone:', isOn ? 'ON' : 'OFF')}
+                      />
+
+                      <AudioToggleButton  
+                        type="system" 
+                        initialState={true}
+                        onToggle={(isOn) => console.log('System Audio:', isOn ? 'ON' : 'OFF')}
+                      />
+
+                      <AudioToggleButton 
+                        type="pin" 
+                        initialState={false}
+                        onToggle={(isOn) => console.log('Pin:', isOn ? 'ON' : 'OFF')}
+                      />
                     </div>
                   </div>
                 </div>
@@ -153,11 +168,23 @@ export default function Home() {
                 <div className="bg-muted rounded-2xl p-6 border border-border">
                   <div className="grid grid-cols-2 gap-6">
                     <div className="flex items-center space-x-3">
-                      <Mic className="w-6 h-6 text-foreground" />
+                      <Image 
+                        src="/mic-audio.svg" 
+                        alt="Microphone Audio" 
+                        width={24} 
+                        height={24} 
+                        className="w-6 h-6"
+                      />
                       <span className="text-foreground font-light">Microphone</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <Laptop className="w-6 h-6 text-foreground" />
+                      <Image 
+                        src="/system-audio.svg" 
+                        alt="System Audio" 
+                        width={24} 
+                        height={24} 
+                        className="w-6 h-6"
+                      />
                       <span className="text-foreground font-light">System Audio</span>
                     </div>
                   </div>
