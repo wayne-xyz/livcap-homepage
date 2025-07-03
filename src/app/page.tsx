@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useCallback } from 'react';
-import { Shield, Zap, ArrowRight, Github, Clock, Rocket, Languages, SplitSquareHorizontal } from 'lucide-react';
+import { Shield, Zap, ArrowRight, Github, Clock, Rocket, Languages, SplitSquareHorizontal, Mic, Volume2 } from 'lucide-react';
 import Image from 'next/image';
 import { Navigation } from '@/components/navigation';
 import { useTheme } from 'next-themes';
@@ -155,23 +155,11 @@ export default function Home() {
                   <div className="bg-background/60 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-border/30">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                       <div className="flex items-center space-x-3">
-                        <Image 
-                          src="/mic-audio.svg" 
-                          alt="Microphone Audio" 
-                          width={24} 
-                          height={24} 
-                          className={`w-5 h-5 sm:w-6 sm:h-6 ${resolvedTheme === 'dark' ? 'filter invert' : ''}`}
-                        />
+                        <Mic className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
                         <span className="text-foreground font-light text-sm sm:text-base">Microphone</span>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <Image 
-                          src="/system-audio.svg" 
-                          alt="System Audio" 
-                          width={24} 
-                          height={24} 
-                          className={`w-8 h-8 sm:w-8 sm:h-8 ${resolvedTheme === 'dark' ? 'filter invert' : ''}`}
-                        />
+                        <Volume2 className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
                         <span className="text-foreground font-light text-sm sm:text-base">System Audio</span>
                       </div>
                     </div>

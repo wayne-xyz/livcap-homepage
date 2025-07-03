@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { useTheme } from 'next-themes';
+import { Mic, MicOff, Volume2, VolumeX, Pin, PinOff } from 'lucide-react';
 
 interface AudioToggleButtonProps {
   type: 'microphone' | 'system' | 'pin';
@@ -28,13 +28,13 @@ export const AudioToggleButton: React.FC<AudioToggleButtonProps> = ({
     onToggle?.(newState);
   };
 
-  const getIconPath = () => {
+  const getIconComponent = () => {
     if (type === 'microphone') {
-      return isOn ? '/mic-audio.svg' : '/mic-audio-slash.svg';
+      return isOn ? Mic : MicOff;
     } else if (type === 'system') {
-      return isOn ? '/system-audio.svg' : '/system-audio-slash.svg';
+      return isOn ? Volume2 : VolumeX;
     } else {
-      return isOn ? '/pin.svg' : '/pin-fill.svg';
+      return isOn ? Pin : PinOff;
     }
   };
 
@@ -75,18 +75,12 @@ export const AudioToggleButton: React.FC<AudioToggleButtonProps> = ({
       
       {/* Icon */}
       <div className="relative z-10">
-        <Image
-          src={getIconPath()}
-          alt={getAltText()}
-          width={size}
-          height={size}
-          className={`
-            ${type === 'system' ? 'w-12 h-12' : 'w-8 h-8'} transition-all duration-300
-            ${resolvedTheme === 'dark' ? 'filter invert' : ''}
-
-            group-hover:brightness-125
-          `}
-        />
+        {React.createElement(getIconComponent(), {
+          className: `
+           w-8 h-8 transition-all duration-300
+            text-foreground group-hover:brightness-125
+          `
+        })}
       </div>
 
 
