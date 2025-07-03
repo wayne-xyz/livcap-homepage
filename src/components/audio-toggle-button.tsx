@@ -1,0 +1,95 @@
+'use client';
+
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { useTheme } from 'next-themes';
+
+interface AudioToggleButtonProps {
+  type: 'microphone' | 'system' | 'pin';
+  initialState?: boolean;
+  size?: number;
+  className?: string;
+  onToggle?: (isOn: boolean) => void;
+}
+
+export const AudioToggleButton: React.FC<AudioToggleButtonProps> = ({
+  type,
+  initialState = true,
+  size = 64,
+  className = '',
+  onToggle
+}) => {
+  const [isOn, setIsOn] = useState(initialState);
+  const { resolvedTheme } = useTheme();
+
+  const handleClick = () => {
+    const newState = !isOn;
+    setIsOn(newState);
+    onToggle?.(newState);
+  };
+
+  const getIconPath = () => {
+    if (type === 'microphone') {
+      return isOn ? '/mic-audio.svg' : '/mic-audio-slash.svg';
+    } else if (type === 'system') {
+      return isOn ? '/system-audio.svg' : '/system-audio-slash.svg';
+    } else {
+      return isOn ? '/pin.svg' : '/pin-fill.svg';
+    }
+  };
+
+  const getAltText = () => {
+    const audioType = type === 'microphone' ? 'Microphone' : 
+                      type === 'system' ? 'System' : 'Pin';
+    const state = isOn ? 'On' : 'Off';
+    const suffix = type === 'pin' ? '' : ' Audio';
+    return `${audioType}${suffix} ${state}`;
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      className={`
+        relative group cursor-pointer
+        w-20 h-20 rounded-full
+        bg-muted hover:bg-muted/80
+        border-2 border-border hover:border-foreground/20
+        transition-all duration-300 ease-in-out
+        transform hover:scale-105 active:scale-95
+        flex items-center justify-center
+        shadow-lg hover:shadow-xl
+
+        ${className}
+      `}
+      aria-label={getAltText()}
+      title={getAltText()}
+    >
+      {/* Background circle with subtle gradient */}
+      <div className={`
+        absolute inset-0 rounded-full transition-all duration-300
+        ${isOn 
+          ? 'bg-gradient-to-br from-primary/10 to-primary/5' 
+          : 'bg-gradient-to-br from-muted-foreground/5 to-muted-foreground/10'
+        }
+      `} />
+      
+      {/* Icon */}
+      <div className="relative z-10">
+        <Image
+          src={getIconPath()}
+          alt={getAltText()}
+          width={size}
+          height={size}
+          className={`
+            ${type === 'system' ? 'w-12 h-12' : 'w-8 h-8'} transition-all duration-300
+            ${resolvedTheme === 'dark' ? 'filter invert' : ''}
+
+            group-hover:brightness-125
+          `}
+        />
+      </div>
+
+
+    </button>
+  );
+}; 
