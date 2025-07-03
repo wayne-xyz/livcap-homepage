@@ -52,6 +52,46 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 | `npm run preview`                 | Preview your build locally, before deploying |
 | `npm run build && npm run deploy` | Deploy your production site to Cloudflare    |
 
+## Cloudflare Pages Deployment Notes
+
+### ⚠️ Important: Deploy Command Configuration
+
+When deploying to Cloudflare Pages, ensure your deployment settings are configured correctly:
+
+**Production Branch (main):**
+- Build command: `npm run build`
+- Deploy command: `npm run deploy`
+
+**Preview Branches (non-main):**
+- Build command: `npm run build` 
+- Deploy command: `npm run deploy` (recommended) or `npx wrangler versions upload`
+
+### Common Issue: Automatic Deploy Command Changes
+
+**Problem:** Cloudflare may automatically change your deploy command from `npm run deploy` to `npx wrangler versions upload` when it detects the `wrangler.jsonc` file, especially for preview branches.
+
+**Symptoms:**
+```
+✘ [ERROR] The entry-point file at ".open-next/worker.js" was not found.
+```
+
+**Solution:** 
+1. Go to Cloudflare Pages Dashboard → Your Project → Settings → Builds & deployments
+2. Manually set deploy command back to: `npm run deploy`
+3. This ensures the OpenNext build process runs correctly before deployment
+
+**Why this happens:** 
+- Main branch deployments use your configured `npm run deploy` 
+- Non-production branches may automatically switch to `npx wrangler versions upload`
+- The `wrangler` command expects `.open-next/worker.js` which only gets created by `opennextjs-cloudflare build` (part of `npm run deploy`)
+
+### File Requirements
+
+The following files are **required** for OpenNext Cloudflare deployment:
+- `wrangler.jsonc` - Worker configuration (do not remove)
+- `open-next.config.ts` - OpenNext settings
+- `next.config.ts` - Next.js configuration with Cloudflare adapter
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
