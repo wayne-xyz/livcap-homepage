@@ -1,13 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useTheme } from 'next-themes';
 import { Mic, MicOff, Volume2, VolumeX, Pin, PinOff } from 'lucide-react';
 
 interface AudioToggleButtonProps {
   type: 'microphone' | 'system' | 'pin';
   initialState?: boolean;
-  size?: number;
   className?: string;
   onToggle?: (isOn: boolean) => void;
 }
@@ -15,12 +13,10 @@ interface AudioToggleButtonProps {
 export const AudioToggleButton: React.FC<AudioToggleButtonProps> = ({
   type,
   initialState = true,
-  size = 64,
   className = '',
   onToggle
 }) => {
   const [isOn, setIsOn] = useState(initialState);
-  const { resolvedTheme } = useTheme();
 
   const handleClick = () => {
     const newState = !isOn;
