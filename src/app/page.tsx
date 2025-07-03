@@ -86,7 +86,7 @@ export default function Home() {
                   <Clock className="w-5 h-5 mr-3" />
                   <div className="text-left">
                     <div className="font-medium">macOS App Coming Soon</div>
-                    <div className="text-sm opacity-75">Currently in development • Follow our GitHub for updates</div>
+                    <div className="text-sm opacity-75">App Store Releasing</div>
                   </div>
                 </div>
                 
