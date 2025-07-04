@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useCallback } from 'react';
-import { Shield, Zap, ArrowRight, Github, Clock, Rocket, Languages, SplitSquareHorizontal, Mic, Volume2 } from 'lucide-react';
+import { Shield, Zap, ArrowRight, Github, Rocket, Languages, SplitSquareHorizontal, Mic, Volume2 } from 'lucide-react';
 import Image from 'next/image';
 import { Navigation } from '@/components/navigation';
 import { useTheme } from 'next-themes';

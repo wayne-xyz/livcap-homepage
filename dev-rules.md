@@ -275,6 +275,36 @@ If deployment fails, check these in order:
 
 ---
 
+## 📋 Deployment Issue Records
+
+### Issue #1: Unused Import Causing Build Failure
+**Date**: January 4, 2025  
+**Error**: `@typescript-eslint/no-unused-vars` - 'Clock' is defined but never used  
+**Location**: `src/app/page.tsx:3:43`  
+**Cause**: Imported `Clock` from `lucide-react` but never used it in the component  
+**Solution**: Remove unused import from the import statement  
+**Prevention**: 
+- Always run `npm run lint` before pushing
+- Use ESLint auto-fix: `npm run lint --fix`  
+- Remove unused imports immediately when refactoring code
+
+```typescript
+// ❌ CAUSED BUILD FAILURE
+import { Shield, Zap, ArrowRight, Github, Clock, Rocket } from 'lucide-react';
+
+// ✅ FIXED - Removed unused Clock import
+import { Shield, Zap, ArrowRight, Github, Rocket } from 'lucide-react';
+```
+
+**Build Error Details**:
+```
+Failed to compile.
+./src/app/page.tsx
+3:43  Error: 'Clock' is defined but never used.  @typescript-eslint/no-unused-vars
+```
+
+---
+
 ## 💡 Pro Tips
 
 - **Use VSCode extensions**: ESLint, Prettier, Tailwind CSS IntelliSense
