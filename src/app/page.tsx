@@ -150,11 +150,11 @@ export default function Home() {
                 <div className="text-left">
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-foreground mb-6 lg:mb-8 tracking-tight">Dual Audio Sources</h2>
                   <p className="text-lg sm:text-xl text-muted-foreground mb-8 lg:mb-12 leading-relaxed font-light">
-                    Simultaneously capture and caption both microphone input and system audio. Perfect for meetings, calls, and presentations where you need to capture everything being said.
+                    Capture and caption from microphone input or system audio sources. Simultaneously* capture both sources will be available in v1.1. Current version supports one source at a time for optimal performance.
                   </p>
                   
                   <div className="bg-background/60 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-border/30">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4">
                       <div className="flex items-center space-x-3">
                         <Mic className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
                         <span className="text-foreground font-light text-sm sm:text-base">Microphone</span>
@@ -164,6 +164,9 @@ export default function Home() {
                         <span className="text-foreground font-light text-sm sm:text-base">System Audio</span>
                       </div>
                     </div>
+                    <p className="text-xs text-muted-foreground font-light">
+                      <sup>*</sup> Simultaneous dual-source capture coming in version 1.1
+                    </p>
                   </div>
                 </div>
               </div>
