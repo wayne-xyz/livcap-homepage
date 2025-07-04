@@ -68,7 +68,9 @@ export function Footer() {
         
         {/* Copyright */}
         <div className="mt-16 pt-8 border-t border-muted-foreground/20 text-center">
-          <p className="text-sm text-muted-foreground">&copy; {year} Wayne-xyz. Released under the MIT License.</p>
+          <p className="text-sm text-muted-foreground">
+            &copy; {year} <a href="https://www.waynej.me/" className="text-muted-foreground hover:text-background transition-colors font-light">Wayne-xyz</a>. Released under the MIT License.
+          </p>
         </div>
       </div>
     </section>

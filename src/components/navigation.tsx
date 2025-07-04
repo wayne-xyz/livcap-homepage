@@ -25,10 +25,10 @@ export function Navigation({ className = "" }: NavigationProps) {
           {/* Desktop Items - Hidden on small screens */}
           <div className="hidden sm:flex items-center space-x-4 md:space-x-6">
             <a 
-              href="#" 
+              href="https://apps.apple.com/us/app/livcap/id6748108138?mt=12" 
               className="border border-border text-foreground px-3 py-2 sm:px-4 sm:py-2 rounded-lg hover:border-foreground/50 hover:bg-muted/30 transition-colors font-light text-xs sm:text-sm"
             >
-              Coming Soon
+              App Store
             </a>
             <a 
               href="https://github.com/wayne-xyz/Livcap" 
@@ -64,11 +64,11 @@ export function Navigation({ className = "" }: NavigationProps) {
                   <div className="space-y-2">
                     {/* Coming Soon */}
                     <a 
-                      href="#"
+                      href="https://apps.apple.com/us/app/livcap/id6748108138?mt=12"
                       className="block w-full p-3 border border-border text-foreground rounded-lg hover:border-foreground/50 hover:bg-muted/30 transition-colors text-center font-light text-sm"
                       onClick={closeMobileMenu}
                     >
-                      Coming Soon
+                      App Store
                     </a>
                     
 
