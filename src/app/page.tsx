@@ -78,23 +78,23 @@ export default function Home() {
               
               {/* App Store and GitHub Buttons */}
               <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-16 ${getAnimationClass('notice')}`}>
-                <a href="https://apps.apple.com/us/app/livcap/id6748108138?mt=12" className={`group inline-flex items-center px-6 py-3 rounded-xl text-base font-light border transition-all duration-300 ${
-                  resolvedTheme === 'dark' 
-                    ? 'bg-blue-900/20 border-blue-800 text-blue-200 hover:bg-blue-900/30 hover:border-blue-700' 
-                    : 'bg-blue-50 border-blue-200 text-blue-950 hover:bg-blue-100 hover:border-blue-300'
-                }`}>
-                  <Rocket className="w-5 h-5 mr-3" />
-                  <div className="text-left">
-                    <div className="font-medium">Available on Mac App Store</div>
-                    <div className="text-sm opacity-75">Free Download</div>
-                  </div>
-                  <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
+                <a href="https://apps.apple.com/us/app/livcap/id6748108138?mt=12" className="group transition-all duration-300 hover:scale-105 bg-background rounded-xl p-2">
+                  <Image
+                    src={resolvedTheme === 'dark' 
+                      ? '/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg'
+                      : '/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_wht_092917.svg'
+                    }
+                    alt="Download on the Mac App Store"
+                    width={220}
+                    height={56}
+                    className="transition-all duration-300 group-hover:opacity-90"
+                  />
                 </a>
                 
-                <a href="https://github.com/wayne-xyz/Livcap" className="group border border-border text-foreground px-6 py-3 rounded-xl font-light text-base hover:border-foreground transition-all duration-300 flex items-center">
-                  <Github className="w-5 h-5 mr-3" />
+                <a href="https://github.com/wayne-xyz/Livcap" className="group border border-border text-foreground px-4 py-4 rounded-xl font-light text-sm hover:border-foreground transition-all duration-300 flex items-center h-14">
+                  <Github className="w-4 h-4 mr-2" />
                   Star on GitHub
-                  <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
             </div>
