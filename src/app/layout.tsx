@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Livcap - Private First Live Caption App for macOS",
+  title: "Livcap - Privacy First Live Caption App for macOS",
   description: "The most private, open source live captioning app for macOS. One-click activation, lightning-fast local processing, zero data sharing.",
   icons: [
     {

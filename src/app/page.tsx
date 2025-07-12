@@ -70,7 +70,7 @@ export default function Home() {
               </div>
 
               <h1 className={`text-4xl sm:text-6xl font-extralight text-foreground leading-none mb-8 tracking-tight ${getAnimationClass('title')}`}>
-                Private First Live Caption Application for macOS
+                Privacy First Live Caption Application for macOS
               </h1>
               <p className={`text-xl text-muted-foreground mb-12 leading-relaxed font-light max-w-3xl mx-auto ${getAnimationClass('subtitle')}`}>
                 Fast, built in public, user privacy first. More features coming soon.
