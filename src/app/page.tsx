@@ -1,10 +1,9 @@
 'use client';
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Shield, Zap, ArrowRight, Github, Rocket, Languages, SplitSquareHorizontal, Mic, Volume2 } from 'lucide-react';
 import Image from 'next/image';
 import { Navigation } from '@/components/navigation';
 import { useTheme } from 'next-themes';
-import { PageLoadAnimation } from '@/components/page-load-animation';
 import { usePageAnimation } from '@/hooks/use-page-animation';
 import { LiveCaptionDemo } from '@/components/live-caption-demo';
 import { AudioToggleButton } from '@/components/audio-toggle-button';
@@ -12,33 +11,12 @@ import { Footer } from '@/components/footer';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
-  const [pageLoadComplete, setPageLoadComplete] = useState(false);
-  const [shouldShowAnimation, setShouldShowAnimation] = useState(true);
+  const pageLoadComplete = true; // Immediately allow page animations; no gating overlay
   const { resolvedTheme } = useTheme();
   const { getAnimationClass } = usePageAnimation(pageLoadComplete);
 
   useEffect(() => {
     setMounted(true);
-    
-    // Check if animation should be skipped
-    const hasSeenAnimation = sessionStorage.getItem('livcap-animation-seen');
-    const referrer = document.referrer;
-    const currentDomain = window.location.hostname;
-    const isInternalNavigation = referrer && new URL(referrer).hostname === currentDomain;
-    
-    // Skip animation if user has seen it in this session OR coming from internal page
-    if (hasSeenAnimation === 'true' || isInternalNavigation) {
-      setShouldShowAnimation(false);
-      setPageLoadComplete(true);
-    } else {
-      // Mark that user will see the animation
-      sessionStorage.setItem('livcap-animation-seen', 'true');
-    }
-  }, []);
-
-  const handlePageLoadComplete = useCallback(() => {
-    console.log('🎬 PageLoadAnimation complete, content now visible & animations starting');
-    setPageLoadComplete(true);
   }, []);
 
   // Don't render theme-dependent content until mounted
@@ -60,13 +38,15 @@ export default function Home() {
            
               {/* Animated App Icon */}
               <div className={`flex justify-center w-full mb-12 ${getAnimationClass('icon')}`}>
-                <Image 
-                  src="/1024-mac.png"
-                  alt="Livcap App Icon"
-                  width={800}  /* Max size */
-                  height={800} /* Max size */
-                  className="object-contain w-full h-full" /* Let the container control the size */
-                />
+                <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48">
+                  <Image 
+                    src="/1024-mac.png"
+                    alt="Livcap App Icon"
+                    width={256}
+                    height={256}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
               </div>
 
               <h1 className={`text-4xl sm:text-6xl font-extralight text-foreground leading-none mb-8 tracking-tight ${getAnimationClass('title')}`}>
@@ -348,9 +328,5 @@ export default function Home() {
       </div>
   );
 
-  return shouldShowAnimation ? (
-    <PageLoadAnimation onAnimationComplete={handlePageLoadComplete}>
-      {content}
-    </PageLoadAnimation>
-  ) : content;
+  return content;
 }

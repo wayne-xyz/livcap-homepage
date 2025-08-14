@@ -17,7 +17,7 @@ export function usePageAnimation(pageLoadComplete: boolean) {
       
       switch (element) {
         case 'icon':
-          return animationStarted ? 'animate-settle-container' : 'opacity-0';
+          return animationStarted ? 'animate-fade-in' : 'opacity-0';
         case 'title':
           return 'animate-slide-up-2';
         case 'subtitle':
