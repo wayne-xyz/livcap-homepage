@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Shield, Zap, ArrowRight, Github, Rocket, Languages, SplitSquareHorizontal, Mic, Volume2 } from 'lucide-react';
+import { Shield, Zap, ArrowRight, Github, Rocket, Languages, SplitSquareHorizontal, Mic, Volume2, Play, X } from 'lucide-react';
 import Image from 'next/image';
 import { Navigation } from '@/components/navigation';
 import { useTheme } from 'next-themes';
@@ -11,6 +11,7 @@ import { Footer } from '@/components/footer';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const pageLoadComplete = true; // Immediately allow page animations; no gating overlay
   const { resolvedTheme } = useTheme();
   const { getAnimationClass } = usePageAnimation(pageLoadComplete);
@@ -18,6 +19,17 @@ export default function Home() {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (!isVideoOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsVideoOpen(false);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isVideoOpen]);
 
   // Don't render theme-dependent content until mounted
   if (!mounted) {
@@ -76,6 +88,15 @@ export default function Home() {
                   Star on GitHub
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>
+
+                <button
+                  type="button"
+                  onClick={() => setIsVideoOpen(true)}
+                  className="group border border-border text-foreground px-4 py-4 rounded-xl font-light text-sm hover:border-foreground transition-all duration-300 flex items-center h-14"
+                >
+                  <Play className="w-4 h-4 mr-2" />
+                  Watch demo
+                </button>
               </div>
             </div>
           </div>
@@ -325,6 +346,50 @@ export default function Home() {
         </div>
 
         <Footer />
+
+        {isVideoOpen && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Demo video"
+            onClick={() => setIsVideoOpen(false)}
+          >
+            <div
+              className="relative w-full max-w-5xl mx-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative pt-[56.25%] rounded-2xl overflow-hidden border border-border bg-black">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube-nocookie.com/embed/-fp2xLChtmE?autoplay=1&rel=0"
+                  title="Livcap Demo Video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+              <div className="mt-3 flex items-center justify-between">
+                <a
+                  href="https://www.youtube.com/watch?v=-fp2xLChtmE&ab_channel=WayneJ."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted-foreground hover:text-foreground underline underline-offset-4"
+                >
+                  Open on YouTube
+                </a>
+                <button
+                  type="button"
+                  aria-label="Close video"
+                  onClick={() => setIsVideoOpen(false)}
+                  className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm text-foreground hover:border-foreground"
+                >
+                  <X className="w-4 h-4" />
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
   );
 
